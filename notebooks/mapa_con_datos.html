@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_0d6e308b0694ff76adbea04a4d2c1dc1 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_0d6e308b0694ff76adbea04a4d2c1dc1" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_0d6e308b0694ff76adbea04a4d2c1dc1 = L.map(
+                "map_0d6e308b0694ff76adbea04a4d2c1dc1",
+                {
+                    center: [-98.1403903008043, 19.938287335451456],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 14,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_5ec49d6aa24e6f55aa4e084817090d96 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_5ec49d6aa24e6f55aa4e084817090d96.addTo(map_0d6e308b0694ff76adbea04a4d2c1dc1);
+        
+    
+            var marker_62417ac932eb67ac60028f6e3390cd1c = L.marker(
+                [-98.14047610673173, 19.938792978959935],
+                {}
+            ).addTo(map_0d6e308b0694ff76adbea04a4d2c1dc1);
+        
+    
+            var icon_2d5e89d829e8771e60e451e0f540d5e1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_62417ac932eb67ac60028f6e3390cd1c.setIcon(icon_2d5e89d829e8771e60e451e0f540d5e1);
+        
+    
+        var popup_dcb99764a7c3eac3f76903e2acbb2a13 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d8a0fed396ff6c78ebccfa2fa50ba61f = $(`<div id="html_d8a0fed396ff6c78ebccfa2fa50ba61f" style="width: 100.0%; height: 100.0%;">Nombre: Alcaparrosa<br>CO2: 11.4 gm-2-d-1</div>`)[0];
+                popup_dcb99764a7c3eac3f76903e2acbb2a13.setContent(html_d8a0fed396ff6c78ebccfa2fa50ba61f);
+            
+        
+
+        marker_62417ac932eb67ac60028f6e3390cd1c.bindPopup(popup_dcb99764a7c3eac3f76903e2acbb2a13)
+        ;
+
+        
+    
+    
+            var marker_cb1ce4079d5d66a04863bab6b89d4df0 = L.marker(
+                [-98.14025923059587, 19.938037426474867],
+                {}
+            ).addTo(map_0d6e308b0694ff76adbea04a4d2c1dc1);
+        
+    
+            var icon_dbab780656081d20344b2c19a47b4d87 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_cb1ce4079d5d66a04863bab6b89d4df0.setIcon(icon_dbab780656081d20344b2c19a47b4d87);
+        
+    
+        var popup_cccdb64fae2867142dff284c92871383 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4efd2bad2837a2d9a437620ec3cdb016 = $(`<div id="html_4efd2bad2837a2d9a437620ec3cdb016" style="width: 100.0%; height: 100.0%;">Nombre: Alcaparrosa<br>CO2: 1.27 gm-2-d-1</div>`)[0];
+                popup_cccdb64fae2867142dff284c92871383.setContent(html_4efd2bad2837a2d9a437620ec3cdb016);
+            
+        
+
+        marker_cb1ce4079d5d66a04863bab6b89d4df0.bindPopup(popup_cccdb64fae2867142dff284c92871383)
+        ;
+
+        
+    
+    
+            var marker_afe0f844889258dc1a61dc53e57cfdb4 = L.marker(
+                [-98.1402871898066, 19.938719777138903],
+                {}
+            ).addTo(map_0d6e308b0694ff76adbea04a4d2c1dc1);
+        
+    
+            var icon_1b23399ccffd3262d9fef02744240e0f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_afe0f844889258dc1a61dc53e57cfdb4.setIcon(icon_1b23399ccffd3262d9fef02744240e0f);
+        
+    
+        var popup_12cf9da07d20b325a34b0fd3f7fddc2a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_bd5bb03276dee5ba5852c97ad8404331 = $(`<div id="html_bd5bb03276dee5ba5852c97ad8404331" style="width: 100.0%; height: 100.0%;">Nombre: Alcaparrosa<br>CO2: 1.67 gm-2-d-1</div>`)[0];
+                popup_12cf9da07d20b325a34b0fd3f7fddc2a.setContent(html_bd5bb03276dee5ba5852c97ad8404331);
+            
+        
+
+        marker_afe0f844889258dc1a61dc53e57cfdb4.bindPopup(popup_12cf9da07d20b325a34b0fd3f7fddc2a)
+        ;
+
+        
+    
+    
+            var marker_0a0b7fa0ec34c2a5e9673ebe5d510ebe = L.marker(
+                [-98.14023201685995, 19.937989855962165],
+                {}
+            ).addTo(map_0d6e308b0694ff76adbea04a4d2c1dc1);
+        
+    
+            var icon_023bc6ac3bcf3487754343ec2a924b7f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_0a0b7fa0ec34c2a5e9673ebe5d510ebe.setIcon(icon_023bc6ac3bcf3487754343ec2a924b7f);
+        
+    
+        var popup_abc8c630c4ad662fffd184cf40a7071f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_93986c4fd647f910446cc53a54210573 = $(`<div id="html_93986c4fd647f910446cc53a54210573" style="width: 100.0%; height: 100.0%;">Nombre: Alcaparrosa<br>CO2: 4.41 gm-2-d-1</div>`)[0];
+                popup_abc8c630c4ad662fffd184cf40a7071f.setContent(html_93986c4fd647f910446cc53a54210573);
+            
+        
+
+        marker_0a0b7fa0ec34c2a5e9673ebe5d510ebe.bindPopup(popup_abc8c630c4ad662fffd184cf40a7071f)
+        ;
+
+        
+    
+    
+            var marker_498445143951616ed86e35bb707d9fa3 = L.marker(
+                [-98.14023789090123, 19.938007956319307],
+                {}
+            ).addTo(map_0d6e308b0694ff76adbea04a4d2c1dc1);
+        
+    
+            var icon_c3fdcccf33a19b040b691a00ad1c75e2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_498445143951616ed86e35bb707d9fa3.setIcon(icon_c3fdcccf33a19b040b691a00ad1c75e2);
+        
+    
+        var popup_86a99a7dc82b72268d14236005e94a7a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_91b01d708555e1e955171af85b0f8177 = $(`<div id="html_91b01d708555e1e955171af85b0f8177" style="width: 100.0%; height: 100.0%;">Nombre: Alcaparrosa<br>CO2: 1.91 gm-2-d-1</div>`)[0];
+                popup_86a99a7dc82b72268d14236005e94a7a.setContent(html_91b01d708555e1e955171af85b0f8177);
+            
+        
+
+        marker_498445143951616ed86e35bb707d9fa3.bindPopup(popup_86a99a7dc82b72268d14236005e94a7a)
+        ;
+
+        
+    
+    
+            var marker_1488fab76e2ae68f563749e3efbd3500 = L.marker(
+                [-98.14042629919025, 19.93861653665968],
+                {}
+            ).addTo(map_0d6e308b0694ff76adbea04a4d2c1dc1);
+        
+    
+            var icon_dc67b23e2038c89f310af8bfe295fa29 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_1488fab76e2ae68f563749e3efbd3500.setIcon(icon_dc67b23e2038c89f310af8bfe295fa29);
+        
+    
+        var popup_ecbe2122b0a8374adea2657b52816459 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2da2b59b9ae164e3ce45f3adc769b62f = $(`<div id="html_2da2b59b9ae164e3ce45f3adc769b62f" style="width: 100.0%; height: 100.0%;">Nombre: Alcaparrosa<br>CO2: 7.77 gm-2-d-1</div>`)[0];
+                popup_ecbe2122b0a8374adea2657b52816459.setContent(html_2da2b59b9ae164e3ce45f3adc769b62f);
+            
+        
+
+        marker_1488fab76e2ae68f563749e3efbd3500.bindPopup(popup_ecbe2122b0a8374adea2657b52816459)
+        ;
+
+        
+    
+    
+            var marker_1c2e362ebb9f5f605cefbc5ad2507421 = L.marker(
+                [-98.14026425941911, 19.93832208371631],
+                {}
+            ).addTo(map_0d6e308b0694ff76adbea04a4d2c1dc1);
+        
+    
+            var icon_2b4b30d60cba6086f9c926f4b0316a5f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_1c2e362ebb9f5f605cefbc5ad2507421.setIcon(icon_2b4b30d60cba6086f9c926f4b0316a5f);
+        
+    
+        var popup_42cfe7958fcc176058048e4af29a179f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6b65269e369af50c9cec519a13fbb998 = $(`<div id="html_6b65269e369af50c9cec519a13fbb998" style="width: 100.0%; height: 100.0%;">Nombre: Alcaparrosa<br>CO2: 2.26 gm-2-d-1</div>`)[0];
+                popup_42cfe7958fcc176058048e4af29a179f.setContent(html_6b65269e369af50c9cec519a13fbb998);
+            
+        
+
+        marker_1c2e362ebb9f5f605cefbc5ad2507421.bindPopup(popup_42cfe7958fcc176058048e4af29a179f)
+        ;
+
+        
+    
+    
+            var marker_a5e54efcf22142114c44dd9f4e356dca = L.marker(
+                [-98.14034304417144, 19.9387720042167],
+                {}
+            ).addTo(map_0d6e308b0694ff76adbea04a4d2c1dc1);
+        
+    
+            var icon_44b86985b80dd7ea3f1fdda5b2126660 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_a5e54efcf22142114c44dd9f4e356dca.setIcon(icon_44b86985b80dd7ea3f1fdda5b2126660);
+        
+    
+        var popup_756042cb9e5906c5488ccb590fa63eef = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_825de9831d23071e524ef697a58c771c = $(`<div id="html_825de9831d23071e524ef697a58c771c" style="width: 100.0%; height: 100.0%;">Nombre: Alcaparrosa<br>CO2: 46.3 gm-2-d-1</div>`)[0];
+                popup_756042cb9e5906c5488ccb590fa63eef.setContent(html_825de9831d23071e524ef697a58c771c);
+            
+        
+
+        marker_a5e54efcf22142114c44dd9f4e356dca.bindPopup(popup_756042cb9e5906c5488ccb590fa63eef)
+        ;
+
+        
+    
+    
+            var marker_9665c91cca4e576ab61f67719f10436f = L.marker(
+                [-98.14035903375076, 19.93879693049071],
+                {}
+            ).addTo(map_0d6e308b0694ff76adbea04a4d2c1dc1);
+        
+    
+            var icon_477c7d56313fd0ceccd1543a4d88173e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_9665c91cca4e576ab61f67719f10436f.setIcon(icon_477c7d56313fd0ceccd1543a4d88173e);
+        
+    
+        var popup_ae762eb01c0fd011c444b377b19f1627 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7caf3cade1c0ffeee42d365bccf33a06 = $(`<div id="html_7caf3cade1c0ffeee42d365bccf33a06" style="width: 100.0%; height: 100.0%;">Nombre: Alcaparrosa<br>CO2: 296.0 gm-2-d-1</div>`)[0];
+                popup_ae762eb01c0fd011c444b377b19f1627.setContent(html_7caf3cade1c0ffeee42d365bccf33a06);
+            
+        
+
+        marker_9665c91cca4e576ab61f67719f10436f.bindPopup(popup_ae762eb01c0fd011c444b377b19f1627)
+        ;
+
+        
+    
+    
+            var marker_8497a770e1beb86a695afec4cf19b1e5 = L.marker(
+                [-98.14052395399462, 19.938007081443246],
+                {}
+            ).addTo(map_0d6e308b0694ff76adbea04a4d2c1dc1);
+        
+    
+            var icon_6cfe89dd3530accb699fbb4f165f6bfd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_8497a770e1beb86a695afec4cf19b1e5.setIcon(icon_6cfe89dd3530accb699fbb4f165f6bfd);
+        
+    
+        var popup_4317bd09f56d92abd52eec59065b8eb7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_356203bd18376cdf6ea3027961cb1a1c = $(`<div id="html_356203bd18376cdf6ea3027961cb1a1c" style="width: 100.0%; height: 100.0%;">Nombre: Alcaparrosa<br>CO2: 0.367 gm-2-d-1</div>`)[0];
+                popup_4317bd09f56d92abd52eec59065b8eb7.setContent(html_356203bd18376cdf6ea3027961cb1a1c);
+            
+        
+
+        marker_8497a770e1beb86a695afec4cf19b1e5.bindPopup(popup_4317bd09f56d92abd52eec59065b8eb7)
+        ;
+
+        
+    
+    
+            var marker_48b751560055da7c596b1da75200ab70 = L.marker(
+                [-98.14058981369293, 19.93808646474244],
+                {}
+            ).addTo(map_0d6e308b0694ff76adbea04a4d2c1dc1);
+        
+    
+            var icon_57381f6dc4e1eed38e746b137fae3a9e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_48b751560055da7c596b1da75200ab70.setIcon(icon_57381f6dc4e1eed38e746b137fae3a9e);
+        
+    
+        var popup_054b541ab56b09e97cd5c9200d2c26c8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_311d58dd2bf2cebff7e37caa809dbe54 = $(`<div id="html_311d58dd2bf2cebff7e37caa809dbe54" style="width: 100.0%; height: 100.0%;">Nombre: Alcaparrosa<br>CO2: 3.9 gm-2-d-1</div>`)[0];
+                popup_054b541ab56b09e97cd5c9200d2c26c8.setContent(html_311d58dd2bf2cebff7e37caa809dbe54);
+            
+        
+
+        marker_48b751560055da7c596b1da75200ab70.bindPopup(popup_054b541ab56b09e97cd5c9200d2c26c8)
+        ;
+
+        
+    
+    
+            var marker_2b0f0d223fd92162f193d7560bbbd19b = L.marker(
+                [-98.14032007171285, 19.938713159283306],
+                {}
+            ).addTo(map_0d6e308b0694ff76adbea04a4d2c1dc1);
+        
+    
+            var icon_d054cffd932c8972bc4bc50f15117349 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_2b0f0d223fd92162f193d7560bbbd19b.setIcon(icon_d054cffd932c8972bc4bc50f15117349);
+        
+    
+        var popup_631f6759912317e04c8a78bcd23ba9e7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_92201cfc6875afa3506f2064cb5433ed = $(`<div id="html_92201cfc6875afa3506f2064cb5433ed" style="width: 100.0%; height: 100.0%;">Nombre: Alcaparrosa<br>CO2: 8.0 gm-2-d-1</div>`)[0];
+                popup_631f6759912317e04c8a78bcd23ba9e7.setContent(html_92201cfc6875afa3506f2064cb5433ed);
+            
+        
+
+        marker_2b0f0d223fd92162f193d7560bbbd19b.bindPopup(popup_631f6759912317e04c8a78bcd23ba9e7)
+        ;
+
+        
+    
+    
+            var marker_17b0f3d66c9e19dd227d4328403b2498 = L.marker(
+                [-98.14028391050289, 19.938773977058244],
+                {}
+            ).addTo(map_0d6e308b0694ff76adbea04a4d2c1dc1);
+        
+    
+            var icon_30efcfb039625e16a2506abdc024faab = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_17b0f3d66c9e19dd227d4328403b2498.setIcon(icon_30efcfb039625e16a2506abdc024faab);
+        
+    
+        var popup_0d31a6570dde13dfa427c84080df6dde = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8fa2bb6d70a1163cd0bc3b73ec657eb6 = $(`<div id="html_8fa2bb6d70a1163cd0bc3b73ec657eb6" style="width: 100.0%; height: 100.0%;">Nombre: Alcaparrosa<br>CO2: 2.58 gm-2-d-1</div>`)[0];
+                popup_0d31a6570dde13dfa427c84080df6dde.setContent(html_8fa2bb6d70a1163cd0bc3b73ec657eb6);
+            
+        
+
+        marker_17b0f3d66c9e19dd227d4328403b2498.bindPopup(popup_0d31a6570dde13dfa427c84080df6dde)
+        ;
+
+        
+    
+    
+            var marker_86c85503b52640222bbd081f99eac93e = L.marker(
+                [-98.14030118001138, 19.938783096592715],
+                {}
+            ).addTo(map_0d6e308b0694ff76adbea04a4d2c1dc1);
+        
+    
+            var icon_114d55073803cb32a727d1a7ba68f107 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_86c85503b52640222bbd081f99eac93e.setIcon(icon_114d55073803cb32a727d1a7ba68f107);
+        
+    
+        var popup_9ea0f979f97765652b08506fe8c79bd3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ab90deaa91becea97360d56075741518 = $(`<div id="html_ab90deaa91becea97360d56075741518" style="width: 100.0%; height: 100.0%;">Nombre: Alcaparrosa<br>CO2: 5190.0 gm-2-d-1</div>`)[0];
+                popup_9ea0f979f97765652b08506fe8c79bd3.setContent(html_ab90deaa91becea97360d56075741518);
+            
+        
+
+        marker_86c85503b52640222bbd081f99eac93e.bindPopup(popup_9ea0f979f97765652b08506fe8c79bd3)
+        ;
+
+        
+    
+    
+            var marker_c7143b1816d3d3a7bf0131175913619b = L.marker(
+                [-98.1404500238076, 19.9380948244424],
+                {}
+            ).addTo(map_0d6e308b0694ff76adbea04a4d2c1dc1);
+        
+    
+            var icon_69fe88e5b911b91ccbf15decd958a418 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_c7143b1816d3d3a7bf0131175913619b.setIcon(icon_69fe88e5b911b91ccbf15decd958a418);
+        
+    
+        var popup_fbe814bc31aec39bb1266680b032e38f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9b24b2aff99ced5e0a7d5a8ec6302443 = $(`<div id="html_9b24b2aff99ced5e0a7d5a8ec6302443" style="width: 100.0%; height: 100.0%;">Nombre: Alcaparrosa<br>CO2: 8.54 gm-2-d-1</div>`)[0];
+                popup_fbe814bc31aec39bb1266680b032e38f.setContent(html_9b24b2aff99ced5e0a7d5a8ec6302443);
+            
+        
+
+        marker_c7143b1816d3d3a7bf0131175913619b.bindPopup(popup_fbe814bc31aec39bb1266680b032e38f)
+        ;
+
+        
+    
+    
+            var marker_ea88af623a8d55d887b6e035a1766b68 = L.marker(
+                [-98.14046518559866, 19.93805197695911],
+                {}
+            ).addTo(map_0d6e308b0694ff76adbea04a4d2c1dc1);
+        
+    
+            var icon_902f9ee5d5239c9eb8d13686835e5169 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_ea88af623a8d55d887b6e035a1766b68.setIcon(icon_902f9ee5d5239c9eb8d13686835e5169);
+        
+    
+        var popup_c43c484d02336a61b6bba505b2bb8e32 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_c9452bc1761934d799b9512a9fab8328 = $(`<div id="html_c9452bc1761934d799b9512a9fab8328" style="width: 100.0%; height: 100.0%;">Nombre: Alcaparrosa<br>CO2: 90.7 gm-2-d-1</div>`)[0];
+                popup_c43c484d02336a61b6bba505b2bb8e32.setContent(html_c9452bc1761934d799b9512a9fab8328);
+            
+        
+
+        marker_ea88af623a8d55d887b6e035a1766b68.bindPopup(popup_c43c484d02336a61b6bba505b2bb8e32)
+        ;
+
+        
+    
+    
+            var marker_19ea560a78aa63517b4c9b767489c14b = L.marker(
+                [-98.14041202403459, 19.93805397874526],
+                {}
+            ).addTo(map_0d6e308b0694ff76adbea04a4d2c1dc1);
+        
+    
+            var icon_aa374b1dfac316bb68c5e8c0ca9fb03a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_19ea560a78aa63517b4c9b767489c14b.setIcon(icon_aa374b1dfac316bb68c5e8c0ca9fb03a);
+        
+    
+        var popup_4d1461c726c3510373b35c7fc593743a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_99b0583de36da20cb799118a93d727bc = $(`<div id="html_99b0583de36da20cb799118a93d727bc" style="width: 100.0%; height: 100.0%;">Nombre: Alcaparrosa<br>CO2: 15.1 gm-2-d-1</div>`)[0];
+                popup_4d1461c726c3510373b35c7fc593743a.setContent(html_99b0583de36da20cb799118a93d727bc);
+            
+        
+
+        marker_19ea560a78aa63517b4c9b767489c14b.bindPopup(popup_4d1461c726c3510373b35c7fc593743a)
+        ;
+
+        
+    
+    
+            var marker_237154c34f93a8603c8cc9d159c83781 = L.marker(
+                [-98.14048316221047, 19.938040768972353],
+                {}
+            ).addTo(map_0d6e308b0694ff76adbea04a4d2c1dc1);
+        
+    
+            var icon_d8139bbdb6f292c8e1079cd66d184e3e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_237154c34f93a8603c8cc9d159c83781.setIcon(icon_d8139bbdb6f292c8e1079cd66d184e3e);
+        
+    
+        var popup_2c30edcf7e3b6708da0c307d0972211a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d0772ca17c1f88059954b93ccf963435 = $(`<div id="html_d0772ca17c1f88059954b93ccf963435" style="width: 100.0%; height: 100.0%;">Nombre: Alcaparrosa<br>CO2: 18.0 gm-2-d-1</div>`)[0];
+                popup_2c30edcf7e3b6708da0c307d0972211a.setContent(html_d0772ca17c1f88059954b93ccf963435);
+            
+        
+
+        marker_237154c34f93a8603c8cc9d159c83781.bindPopup(popup_2c30edcf7e3b6708da0c307d0972211a)
+        ;
+
+        
+    
+    
+            var marker_5bb6a487cdc5c39f4390eb6459990c38 = L.marker(
+                [-98.14048020073376, 19.938036236662015],
+                {}
+            ).addTo(map_0d6e308b0694ff76adbea04a4d2c1dc1);
+        
+    
+            var icon_7e93dcaac736af7aeb2403af3184c8a4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_5bb6a487cdc5c39f4390eb6459990c38.setIcon(icon_7e93dcaac736af7aeb2403af3184c8a4);
+        
+    
+        var popup_52b226f29bb2d49d0655aa270432883b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6af998fa3cd78190a215930ed6eb0a45 = $(`<div id="html_6af998fa3cd78190a215930ed6eb0a45" style="width: 100.0%; height: 100.0%;">Nombre: Alcaparrosa<br>CO2: 644.0 gm-2-d-1</div>`)[0];
+                popup_52b226f29bb2d49d0655aa270432883b.setContent(html_6af998fa3cd78190a215930ed6eb0a45);
+            
+        
+
+        marker_5bb6a487cdc5c39f4390eb6459990c38.bindPopup(popup_52b226f29bb2d49d0655aa270432883b)
+        ;
+
+        
+    
+    
+            var marker_8badba8af583050a7970011657b6f06a = L.marker(
+                [-98.14046886646673, 19.93803392283566],
+                {}
+            ).addTo(map_0d6e308b0694ff76adbea04a4d2c1dc1);
+        
+    
+            var icon_4340e3b35ba134b271b91cf1a885cf90 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_8badba8af583050a7970011657b6f06a.setIcon(icon_4340e3b35ba134b271b91cf1a885cf90);
+        
+    
+        var popup_6abed544878500c23dcd5e5f6d70e032 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d5a6ef087ec6b79e9d775d976946ebba = $(`<div id="html_d5a6ef087ec6b79e9d775d976946ebba" style="width: 100.0%; height: 100.0%;">Nombre: Alcaparrosa<br>CO2: 49.0 gm-2-d-1</div>`)[0];
+                popup_6abed544878500c23dcd5e5f6d70e032.setContent(html_d5a6ef087ec6b79e9d775d976946ebba);
+            
+        
+
+        marker_8badba8af583050a7970011657b6f06a.bindPopup(popup_6abed544878500c23dcd5e5f6d70e032)
+        ;
+
+        
+    
+    
+            var marker_43f304362f22087a62dd81733bb33cea = L.marker(
+                [-98.14045399798268, 19.938022555943995],
+                {}
+            ).addTo(map_0d6e308b0694ff76adbea04a4d2c1dc1);
+        
+    
+            var icon_9ba3253098fd6f1ebccd638fc6ccb92a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_43f304362f22087a62dd81733bb33cea.setIcon(icon_9ba3253098fd6f1ebccd638fc6ccb92a);
+        
+    
+        var popup_8c1288f01717e9206bb789a7edea7b7f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_92d4ba66ea119f7b615ab88f72096681 = $(`<div id="html_92d4ba66ea119f7b615ab88f72096681" style="width: 100.0%; height: 100.0%;">Nombre: Alcaparrosa<br>CO2: 1.34 gm-2-d-1</div>`)[0];
+                popup_8c1288f01717e9206bb789a7edea7b7f.setContent(html_92d4ba66ea119f7b615ab88f72096681);
+            
+        
+
+        marker_43f304362f22087a62dd81733bb33cea.bindPopup(popup_8c1288f01717e9206bb789a7edea7b7f)
+        ;
+
+        
+    
+    
+            var marker_e038f4d598d75733bc811d8b207599aa = L.marker(
+                [-98.14043122111943, 19.937927568105348],
+                {}
+            ).addTo(map_0d6e308b0694ff76adbea04a4d2c1dc1);
+        
+    
+            var icon_1a4410360dd02af21cd7a23c51940d70 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_e038f4d598d75733bc811d8b207599aa.setIcon(icon_1a4410360dd02af21cd7a23c51940d70);
+        
+    
+        var popup_17c071ee39ff8f5b15680d9b15ee1b45 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_208468fb739413d25ef110b26f77d1d2 = $(`<div id="html_208468fb739413d25ef110b26f77d1d2" style="width: 100.0%; height: 100.0%;">Nombre: Alcaparrosa<br>CO2: 701.0 gm-2-d-1</div>`)[0];
+                popup_17c071ee39ff8f5b15680d9b15ee1b45.setContent(html_208468fb739413d25ef110b26f77d1d2);
+            
+        
+
+        marker_e038f4d598d75733bc811d8b207599aa.bindPopup(popup_17c071ee39ff8f5b15680d9b15ee1b45)
+        ;
+
+        
+    
+    
+            var marker_9af2daa5be6e78f795dd15ff64c74d3b = L.marker(
+                [-98.14042823520364, 19.937927553658874],
+                {}
+            ).addTo(map_0d6e308b0694ff76adbea04a4d2c1dc1);
+        
+    
+            var icon_d5f1c78e32329067d89bad4773bf7996 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_9af2daa5be6e78f795dd15ff64c74d3b.setIcon(icon_d5f1c78e32329067d89bad4773bf7996);
+        
+    
+        var popup_1f52d19dddac14f8cfcc496c8a9cca38 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_06d79ed3dfff3bad5ab7cb1255880e68 = $(`<div id="html_06d79ed3dfff3bad5ab7cb1255880e68" style="width: 100.0%; height: 100.0%;">Nombre: Alcaparrosa<br>CO2: 2150.0 gm-2-d-1</div>`)[0];
+                popup_1f52d19dddac14f8cfcc496c8a9cca38.setContent(html_06d79ed3dfff3bad5ab7cb1255880e68);
+            
+        
+
+        marker_9af2daa5be6e78f795dd15ff64c74d3b.bindPopup(popup_1f52d19dddac14f8cfcc496c8a9cca38)
+        ;
+
+        
+    
+</script>
+</html>
