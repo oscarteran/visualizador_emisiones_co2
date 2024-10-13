@@ -25,6 +25,19 @@ for file in only_files:
 
 # -----------------------------------------
 
+# Cargar el archivo CSV
+uploaded_file = st.file_uploader("Elige un archivo CSV", type='csv')
+
+if uploaded_file is not None:
+    # Leer el archivo CSV y convertirlo en un DataFrame
+    df = pd.read_csv(uploaded_file)
+    st.write("Datos cargados:")
+    st.write(df)
+else:
+    st.write("Por favor, sube un archivo CSV.")
+
+# -----------------------------------------
+
 # Título y descripción de la aplicación
 st.title("Mapa Interactivo con Folium y Streamlit")
 st.markdown("""
