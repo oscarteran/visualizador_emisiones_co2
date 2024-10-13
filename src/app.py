@@ -6,7 +6,24 @@ from pyproj import Proj, transform
 
 
 # Configurar el ancho de la página
-# st.set_page_config(layout="wide")
+# -----------------------------------------
+import os
+
+# Obtener el directorio actual donde está ejecutándose tu script
+current_directory = os.getcwd()
+
+# Listar los archivos y carpetas en el directorio actual
+files_in_directory = os.listdir(current_directory)
+
+# Filtrar solo los archivos (opcional)
+only_files = [f for f in files_in_directory if os.path.isfile(os.path.join(current_directory, f))]
+
+# Mostrar la lista de archivos
+print("Archivos en el directorio actual:")
+for file in only_files:
+    print(file)
+
+# -----------------------------------------
 
 # Título y descripción de la aplicación
 st.title("Mapa Interactivo con Folium y Streamlit")
