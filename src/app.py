@@ -14,6 +14,8 @@ current_directory = os.getcwd()
 # Listar los archivos y carpetas en el directorio actual
 files_and_folders_in_directory = os.listdir(current_directory)
 
+print("-"*100)
+
 # Filtrar solo los archivos
 only_files = [f for f in files_and_folders_in_directory if os.path.isfile(os.path.join(current_directory, f))]
 
