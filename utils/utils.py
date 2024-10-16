@@ -6,9 +6,9 @@ import streamlit as st
 
 
 # Función para mostrar el encabezado con imágenes
-def show_header():
-    st.image("ruta_a_tu_imagen1.png", width=100)
-    st.image("ruta_a_tu_imagen2.png", width=100)
+def show_header(image):
+    st.image(image, width=100)
+    #st.image("ruta_a_tu_imagen2.png", width=100)
     st.title("Análisis de CO₂ en Puntos de Recolección")
     st.markdown("---")  # Línea divisoria
 

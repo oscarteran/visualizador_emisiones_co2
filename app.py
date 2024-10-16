@@ -17,7 +17,7 @@ def main():
     """)
 
     # Mostrar encabezado con imágenes
-    show_header()
+    show_header(image="output/LogoUnam.png")
 
     # Crear dos columnas (izquierda para descripción y derecha para mapas)
     col1, col2 = st.columns([1, 2])  # La columna izquierda será 1/3, la derecha 2/3
@@ -32,13 +32,13 @@ def main():
         st.markdown("""
         ### Visualización de datos de La Escalera
         """)
-        plot_map('data/raw/P_Escalera.csv')
+        plot_map(file='data/raw/P_Escalera.csv')
 
         # Despliegue de mapa
         st.markdown("""
         ### Visualización de datos de Los Azufres
         """)
-        plot_map('data/raw/P_Azufres.csv')
+        plot_map(file='data/raw/P_Azufres.csv')
         
 if __name__ == "__main__":
     main()
