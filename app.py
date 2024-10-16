@@ -17,7 +17,7 @@ def main():
     """)
 
     # Mostrar encabezado con imágenes
-    show_header(image="output/LogoUnam.png")
+    # show_header(image="output/LogoUnam.png")
 
     # Crear dos columnas (izquierda para descripción y derecha para mapas)
     col1, col2 = st.columns([1, 2])  # La columna izquierda será 1/3, la derecha 2/3
