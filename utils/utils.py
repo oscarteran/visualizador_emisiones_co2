@@ -56,3 +56,16 @@ def plot_map(file: str):
     # Mostrar el mapa en la aplicación web dentro de un contenedor
     with st.container():
         st_folium(mapa, width=700, height=500)
+        
+        
+def show_description():
+    st.subheader("Descripción del mapa")
+    st.write("""
+        Este mapa muestra la distribución de los puntos de recolección de datos de CO₂.
+        Cada punto está basado en coordenadas UTM convertidas a latitud y longitud.
+        El valor de CO₂ se representa en **gm-2-d-1** y se muestra al pasar el cursor sobre los marcadores.
+    """)
+    st.write("""
+        Los rectángulos en la malla indican el promedio de CO₂ en cada cuadrícula.
+        Haz clic en los puntos para ver detalles adicionales como la ubicación UTM exacta.
+    """)
