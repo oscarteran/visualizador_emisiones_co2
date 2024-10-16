@@ -5,6 +5,25 @@ from streamlit_folium import st_folium
 import streamlit as st
 
 
+# Función para mostrar el encabezado con imágenes
+def show_header():
+    st.image("ruta_a_tu_imagen1.png", width=100)
+    st.image("ruta_a_tu_imagen2.png", width=100)
+    st.title("Análisis de CO₂ en Puntos de Recolección")
+    st.markdown("---")  # Línea divisoria
+
+# Función para mostrar el texto en la columna izquierda
+def show_description():
+    st.subheader("Descripción del Proyecto")
+    st.write("""
+        Este mapa muestra los puntos de recolección de datos de CO₂ en una zona específica. 
+        La cuadrícula azul indica el promedio de CO₂ en distintas áreas geográficas.
+        Los valores de CO₂ se expresan en **gm-2-d-1**.
+    """)
+    st.write("""
+        Usa el cursor para interactuar con los marcadores y ver los valores exactos.
+    """)
+
 
 def plot_map(file: str):
     ## Todo el código debe ir a una función
@@ -57,15 +76,3 @@ def plot_map(file: str):
     with st.container():
         st_folium(mapa, width=700, height=500)
         
-        
-def show_description():
-    st.subheader("Descripción del mapa")
-    st.write("""
-        Este mapa muestra la distribución de los puntos de recolección de datos de CO₂.
-        Cada punto está basado en coordenadas UTM convertidas a latitud y longitud.
-        El valor de CO₂ se representa en **gm-2-d-1** y se muestra al pasar el cursor sobre los marcadores.
-    """)
-    st.write("""
-        Los rectángulos en la malla indican el promedio de CO₂ en cada cuadrícula.
-        Haz clic en los puntos para ver detalles adicionales como la ubicación UTM exacta.
-    """)
