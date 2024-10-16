@@ -43,7 +43,7 @@ st.markdown("""
 """)
 
 # Carga de datos
-df = pd.read_csv('P_Escalera.csv')
+df = pd.read_csv('data/raw/P_Escalera.csv')
 df.columns = ['UTM X', 'UTM Y', 'CO2_value', 'Nombre de la zona']
 
 
