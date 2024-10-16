@@ -17,10 +17,19 @@ files_in_directory = os.listdir(current_directory)
 # Filtrar solo los archivos (opcional)
 only_files = [f for f in files_in_directory if os.path.isfile(os.path.join(current_directory, f))]
 
+# Filtrar solo las carpetas
+only_folders = [f for f in files_in_directory if os.path.isdir(os.path.join(current_directory, f))]
+
+
 # Mostrar la lista de archivos
 print("Archivos en el directorio actual:")
 for file in only_files:
     print(file)
+    
+# Mostrar la lista de carpetas
+print("\nCarpetas en el directorio actual:")
+for folder in only_folders:
+    print(folder)
 
 # -----------------------------------------
 
