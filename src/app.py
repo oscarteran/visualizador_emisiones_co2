@@ -23,9 +23,9 @@ only_files = [f for f in files_and_folders_in_directory if os.path.isfile(os.pat
 only_folders = [f for f in files_and_folders_in_directory if os.path.isdir(os.path.join(current_directory, f))]
 
 # # Mostrar la lista de archivos
-# print("Archivos en el directorio actual:")
-# for file in only_files:
-#     print(file)
+print("Archivos en el directorio actual:")
+for file in only_files:
+    print(file)
 
 # Mostrar la lista de carpetas
 print("\nCarpetas en el directorio actual:")
