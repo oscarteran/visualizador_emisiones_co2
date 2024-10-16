@@ -14,6 +14,7 @@ st.markdown("""
 Mapas interactivos para revisión de datos de emisiones de CO2.  
 """)
 
+show_description()
 
 # Despliegue de mapa
 st.markdown("""
@@ -26,8 +27,3 @@ st.markdown("""
 ### Visualización de datos de Los Azufres
 """)
 plot_map('data/raw/P_Azufres.csv')
-
-
-show_description()
-    
-    
