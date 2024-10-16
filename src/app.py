@@ -3,47 +3,42 @@ import folium
 from streamlit_folium import st_folium
 import pandas as pd
 from pyproj import Proj, transform
+import os
 
 
 # Configurar el ancho de la página
 # -----------------------------------------
-import os
-
 # Obtener el directorio actual donde está ejecutándose tu script
 current_directory = os.getcwd()
 
 # Listar los archivos y carpetas en el directorio actual
-files_in_directory = os.listdir(current_directory)
+files_and_folders_in_directory = os.listdir(current_directory)
 
-# Filtrar solo los archivos (opcional)
-only_files = [f for f in files_in_directory if os.path.isfile(os.path.join(current_directory, f))]
+# Filtrar solo los archivos
+only_files = [f for f in files_and_folders_in_directory if os.path.isfile(os.path.join(current_directory, f))]
+
+# Filtrar solo las carpetas
+only_folders = [f for f in files_and_folders_in_directory if os.path.isdir(os.path.join(current_directory, f))]
 
 # Mostrar la lista de archivos
 print("Archivos en el directorio actual:")
 for file in only_files:
     print(file)
 
-# -----------------------------------------
-
-# Cargar el archivo CSV
-uploaded_file = st.file_uploader("Elige un archivo CSV", type='csv')
-
-if uploaded_file is not None:
-    # Leer el archivo CSV y convertirlo en un DataFrame
-    df = pd.read_csv(uploaded_file)
-    st.write("Datos cargados:")
-    st.write(df)
-else:
-    st.write("Por favor, sube un archivo CSV.")
+# Mostrar la lista de carpetas
+print("\nCarpetas en el directorio actual:")
+for folder in only_folders:
+    print(folder)
 
 # -----------------------------------------
+
 
 # Título y descripción de la aplicación
 st.title("Mapa Interactivo con Folium y Streamlit")
 st.markdown("""
-### Explora el mapa
-Este mapa muestra una ubicación centrada en **Ciudad de México** con un marcador interactivo. 
-Usa el zoom y mueve el mapa para explorar más áreas.
+## Visualización de CO2
+
+### Visualización 
 """)
 
 # Carga de datos
