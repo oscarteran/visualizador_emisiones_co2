@@ -6,11 +6,16 @@ import streamlit as st
 
 
 # Función para mostrar el encabezado con imágenes
+# Función para mostrar el encabezado con la imagen en la esquina superior izquierda
 def show_header(image):
-    st.image(image, width=100)
-    #st.image("ruta_a_tu_imagen2.png", width=100)
-    st.title("Análisis de CO₂ en Puntos de Recolección")
-    st.markdown("---")  # Línea divisoria
+    col1, col2 = st.columns([1, 4])  # La columna de la imagen es 1/5 del ancho, la del texto es 4/5
+
+    with col1:
+        st.image(image, width=100)  # Imagen en la esquina superior izquierda
+
+    with col2:
+        st.title("Análisis de CO₂ en Puntos de Recolección")  # Texto de encabezado
+        st.markdown("---")  # Línea divisoria debajo del título
 
 # Función para mostrar el texto en la columna izquierda
 def show_description():
