@@ -30,7 +30,7 @@ def show_description():
     """)
 
 
-def plot_map(file: str):
+def plot_map(file: str, layer: str):
     ## Todo el código debe ir a una función
     # Carga de datos
     df = pd.read_csv(file)
@@ -48,7 +48,10 @@ def plot_map(file: str):
     df['lat'], df['lon'] = zip(*df.apply(lambda row: utm_to_latlon(row['UTM X'], row['UTM Y'], proj_utm), axis=1))
 
     # Crear un mapa centrado en el primer punto
-    mapa = folium.Map(location=[df['lat'].mean(), df['lon'].mean()], zoom_start=13)
+    mapa = folium.Map(location=[df['lat'].mean(), df['lon'].mean()], 
+                      tiles="Stadia.AlidadeSatellite",
+                      zoom_start=13,
+                    )
 
     # Definir el tamaño de la malla (en metros, ajustar según sea necesario)
     grid_size = 10  # Tamaño del cuadrado de la malla
@@ -81,3 +84,5 @@ def plot_map(file: str):
     with st.container():
         st_folium(mapa, width=700, height=500)
         
+    #folium.TileLayer('Stamen Terrain', attr='Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under ODbL.').add_to(mapa)
+

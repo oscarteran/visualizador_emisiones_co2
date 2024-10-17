@@ -7,6 +7,7 @@ import os
 from utils.utils import *
 
 
+
 # Función principal para organizar la aplicación
 def main():
     # Título y descripción de la aplicación
@@ -32,13 +33,14 @@ def main():
         st.markdown("""
         ### Visualización de datos de La Escalera
         """)
-        plot_map(file='data/raw/P_Escalera.csv')
+        plot_map(file='data/raw/P_Escalera.csv', layer='Stamen Terrain')
 
         # Despliegue de mapa
-        st.markdown("""
-        ### Visualización de datos de Los Azufres
-        """)
-        plot_map(file='data/raw/P_Azufres.csv')
+        # st.markdown("""
+        # ### Visualización de datos de Los Azufres
+        # """)
+        # plot_map(file='data/raw/P_Azufres.csv')
+    
         
 if __name__ == "__main__":
     main()
