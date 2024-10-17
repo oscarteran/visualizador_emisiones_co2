@@ -33,7 +33,7 @@ def main():
         st.markdown("""
         ### Visualización de datos de La Escalera
         """)
-        plot_map(file='data/raw/P_Escalera.csv', layer='Stamen Terrain')
+        plot_map(file='data/raw/P_Escalera.csv')
 
         # Despliegue de mapa
         # st.markdown("""

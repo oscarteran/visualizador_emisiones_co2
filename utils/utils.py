@@ -30,7 +30,7 @@ def show_description():
     """)
 
 
-def plot_map(file: str, layer: str):
+def plot_map(file: str):
     ## Todo el código debe ir a una función
     # Carga de datos
     df = pd.read_csv(file)
@@ -49,7 +49,6 @@ def plot_map(file: str, layer: str):
 
     # Crear un mapa centrado en el primer punto
     mapa = folium.Map(location=[df['lat'].mean(), df['lon'].mean()], 
-                      tiles="Stadia.AlidadeSatellite",
                       zoom_start=13,
                     )
 
