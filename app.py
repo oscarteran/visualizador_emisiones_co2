@@ -4,7 +4,7 @@ from streamlit_folium import st_folium
 import pandas as pd
 from pyproj import Proj, transform
 import os
-from utils.capas import *
+#from utils.capas import *
 from utils.funciones import *
 
 
