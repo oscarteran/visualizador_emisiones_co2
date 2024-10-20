@@ -48,7 +48,8 @@ def grafico_de_puntos(file: str):
     
     # Crear un mapa centrado en el primer punto
     mapa = folium.Map(location=[23.6345, -102.5528], 
-                      tiles="Stadia.AlidadeSatellite",
+                      #tiles="Stadia.AlidadeSatellite",
+                      tiles="OpenStreetMap",
                       zoom_start=5,
                     )
 
