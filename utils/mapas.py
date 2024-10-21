@@ -5,32 +5,6 @@ from streamlit_folium import st_folium
 import streamlit as st
 import json
 
-
-# Función para mostrar el encabezado con imágenes
-# Función para mostrar el encabezado con la imagen en la esquina superior izquierda
-def show_header(image):
-    col1, col2 = st.columns([1, 4])  # La columna de la imagen es 1/5 del ancho, la del texto es 4/5
-
-    with col1:
-        st.image(image, width=100)  # Imagen en la esquina superior izquierda
-
-    with col2:
-        st.title("Análisis de CO₂ en Puntos de Recolección")  # Texto de encabezado
-        st.markdown("---")  # Línea divisoria debajo del título
-
-# Función para mostrar el texto en la columna izquierda
-def show_description():
-    st.subheader("Descripción del Proyecto")
-    st.write("""
-        Este mapa muestra los puntos de recolección de datos de CO₂ en una zona específica. 
-        La cuadrícula azul indica el promedio de CO₂ en distintas áreas geográficas.
-        Los valores de CO₂ se expresan en **gm-2-d-1**.
-    """)
-    st.write("""
-        Usa el cursor para interactuar con los marcadores y ver los valores exactos.
-    """)
-
-
 def grafico_de_puntos(file: str):
     # Abrir y leer el archivo JSON
     with open(file, 'r') as archivo_json:
@@ -48,8 +22,8 @@ def grafico_de_puntos(file: str):
     
     # Crear un mapa centrado en el primer punto
     mapa = folium.Map(location=[23.6345, -102.5528], 
-                      #tiles="Stadia.AlidadeSatellite",
-                      tiles="OpenStreetMap",
+                      tiles="Stadia.AlidadeSatellite",
+                      #tiles="OpenStreetMap",
                       zoom_start=5,
                     )
 
@@ -141,4 +115,3 @@ def plot_map(file: str):
         st_folium(mapa, width=700, height=500)
         
     #folium.TileLayer('Stamen Terrain', attr='Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under ODbL.').add_to(mapa)
-
