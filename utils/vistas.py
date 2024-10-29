@@ -31,28 +31,97 @@ def show_description():
         Usa el cursor para interactuar con los marcadores y ver los valores exactos.
     """)
 
-
-def columna_navegacion():
-    # Menú en la barra lateral
-    # st.sidebar.title("📚 Inventario de emisiones")
-    # st.sidebar.write("**Selecciona un módulo:**")
-    # st.sidebar.write("- Descripción del proyecto")
-    # st.sidebar.write("- Modulo 1: Datos")
+#TODO: Columna deprecada
+# def columna_navegacion():
+#     # Menú en la barra lateral
+#     # st.sidebar.title("📚 Inventario de emisiones")
+#     # st.sidebar.write("**Selecciona un módulo:**")
+#     # st.sidebar.write("- Descripción del proyecto")
+#     # st.sidebar.write("- Modulo 1: Datos")
 
     
-    # Menú en la barra lateral
-    st.sidebar.title("Inventario de emisiones")
-    section = st.sidebar.radio("Selecciona un módulo:", 
-                            ["Descripción del proyecto", 
-                             "Modulo 1: Datos Nacionales",])
+#     # Menú en la barra lateral
+#     st.sidebar.title("Inventario de emisiones")
+#     section = st.sidebar.radio("Selecciona un módulo:", 
+#                             ["Descripción del proyecto", 
+#                              "Modulo 1: Datos Nacionales",])
 
-    # Contenido basado en la selección
-    if section == "Descripción del proyecto":
-        st.header("Descripción del proyecto")
-        st.write("Aquí va una descripción del curso...")
+#     # Contenido basado en la selección
+#     if section == "Descripción del proyecto":
+#         st.header("Descripción del proyecto")
+#         st.write("Aquí va una descripción del curso...")
         
-    elif section == "Modulo 1: Datos Nacionales":
-        st.header("Module 1: Datos")
-        st.write("Contenido de la introducción y los prerrequisitos...")
-        show_country()
+#     elif section == "Modulo 1: Datos Nacionales":
+#         st.header("Module 1: Datos")
+#         st.write("Contenido de la introducción y los prerrequisitos...")
+#         show_country()
+
+def definir_pagina_actual():
+    # Inicializar la variable de sesión para la página actual
+    if "page" not in st.session_state:
+        st.session_state["page"] = "Inicio"
+
+    # Función para cambiar de página
+    def go_to_page(page_name):
+        st.session_state["page"] = page_name
+        
+    titulo = "Inventario nacional de emisiones de CO"
+
+    # Mostrar ícono como botón para cambiar de página
+    st.sidebar.title(titulo)
+    st.sidebar.button("Descripción del proyecto", on_click=go_to_page, args=("Inicio",))
+    st.sidebar.button("Modulo 1. Datos nacionales", on_click=go_to_page, args=("Acerca de",))
+    st.sidebar.button("Redicrección a los mapas", on_click=go_to_page, args=("Mapas",))
+    
+    
+    
+def contenido_principal():
+    st.title("Catálogo nacional de emisiones de CO2")
+    st.header("UNAM: Universidad Nacional Autónoma de México.")
+    st.subheader("Instituto de Geofísica. Departamento de Recursos Nacionales.")
+    st.text("""
+            Descripción completa del proyecto
+            """)
+    
+    
+
+def datos_nacionales():
+    # Leer todos los csv convertidos en latitud y longitud
+    
+    # Crear diccionario con nombre/df de datos
+    
+    # Iterar sobre esa lista 
+    
+    # Funcion para crear las paginas con parametro de definicion
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    # Define a dictionary with button labels and their corresponding URLs
+    pages = {
+        "Google": "https://www.google.com",
+        "OpenAI": "https://www.openai.com",
+        "Streamlit": "https://www.streamlit.io"
+    }
+
+    # Title for the list of buttons
+    st.title("Navigate to Pages")
+
+    # Generate buttons dynamically
+    for page_name, url in pages.items():
+        if st.button(page_name):  # Create a button for each item in the dictionary
+            st.write(f"Redirecting to {page_name}...")
+            st.write(f"[{page_name}]({url})")  # Renders the link inline (alternative to auto-open)
+        
         
