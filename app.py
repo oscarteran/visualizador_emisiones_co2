@@ -18,9 +18,16 @@ def main():
 
     
     #mostrar_pagina(pagina=pagina)
+    # Inicializar la variable de sesión para la página actual
+    if "page" not in st.session_state:
+        st.session_state["page"] = "Inicio"
 
     # Invocar funcion para definir vista actual:
     definir_pagina_actual()
+    
+    # Leer lista completa de ubicaciones
+    with open("data\processed\\nombres_unicos.json", "r") as archivo:
+        nombres_unicos = json.load(archivo)
 
     # Cargar la página actual
     if st.session_state["page"] == "Inicio":
@@ -28,7 +35,10 @@ def main():
     elif st.session_state["page"] == "Acerca de":
         mostrar_datos_nacionales()
     elif st.session_state["page"] == "Mapas":
-        datos_nacionales()
+        listado_mapas()
+    elif st.session_state["page"] in nombres_unicos:
+        encabezado_mapa_individual(zona=str(st.session_state["page"]))
+        #mapas_individuales(file=nombres_unicos[str(st.session_state["page"])])
     
 if __name__ == "__main__":
     main()

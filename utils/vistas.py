@@ -5,6 +5,7 @@ from streamlit_folium import st_folium
 import streamlit as st
 import json
 from .pages import *
+import glob
 
 
 # Función para mostrar el encabezado con imágenes
@@ -56,22 +57,20 @@ def show_description():
 #         st.write("Contenido de la introducción y los prerrequisitos...")
 #         show_country()
 
-def definir_pagina_actual():
-    # Inicializar la variable de sesión para la página actual
-    if "page" not in st.session_state:
-        st.session_state["page"] = "Inicio"
+# Función para cambiar de página
+def go_to_page(page_name):
+    st.session_state["page"] = page_name
 
-    # Función para cambiar de página
-    def go_to_page(page_name):
-        st.session_state["page"] = page_name
-        
+
+
+def definir_pagina_actual():
     titulo = "Inventario nacional de emisiones de CO"
 
     # Mostrar ícono como botón para cambiar de página
     st.sidebar.title(titulo)
     st.sidebar.button("Descripción del proyecto", on_click=go_to_page, args=("Inicio",))
     st.sidebar.button("Modulo 1. Datos nacionales", on_click=go_to_page, args=("Acerca de",))
-    st.sidebar.button("Redicrección a los mapas", on_click=go_to_page, args=("Mapas",))
+    st.sidebar.button("Redirección a los mapas", on_click=go_to_page, args=("Mapas",))
     
     
     
@@ -85,43 +84,30 @@ def contenido_principal():
     
     
 
-def datos_nacionales():
+def listado_mapas():
     # Leer todos los csv convertidos en latitud y longitud
+    # Especificar el directorio y tipo de archivo
+    csv_archivos = glob.glob("data\processed\*.csv")
     
     # Crear diccionario con nombre/df de datos
+    # Leer cada ruta de archivo y convertirlo a un DafaFrame
+    dataframes = [pd.read_csv(file) for file in csv_archivos]
     
-    # Iterar sobre esa lista 
+    # Unir en un diccionario ambas listas de elementos
+    mapas_completos = dict(zip(csv_archivos, dataframes))
     
     # Funcion para crear las paginas con parametro de definicion
+    st.title("Listado completo de mapas")
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    # Define a dictionary with button labels and their corresponding URLs
-    pages = {
-        "Google": "https://www.google.com",
-        "OpenAI": "https://www.openai.com",
-        "Streamlit": "https://www.streamlit.io"
-    }
-
-    # Title for the list of buttons
-    st.title("Navigate to Pages")
-
-    # Generate buttons dynamically
-    for page_name, url in pages.items():
-        if st.button(page_name):  # Create a button for each item in the dictionary
-            st.write(f"Redirecting to {page_name}...")
-            st.write(f"[{page_name}]({url})")  # Renders the link inline (alternative to auto-open)
+    st.markdown("### Seleccione un Mapa")
+    for nombre, datos in mapas_completos.items():
+        with st.container():
+            st.button(nombre[17:-10],  on_click=go_to_page, args=(str(nombre[17:-10]),))
+            
+def encabezado_mapa_individual(zona):
+    st.title(f"Información de zona: {zona}")
+    st.text("""
+            Este mapa despliega la localización de las muestras tomadas así como el valor medido.
+            """)
         
         
