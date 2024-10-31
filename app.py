@@ -26,7 +26,7 @@ def main():
     definir_pagina_actual()
     
     # Leer lista completa de ubicaciones
-    with open("data\processed\\nombres_unicos.json", "r") as archivo:
+    with open("data\processed\nombres_unicos.json", "r") as archivo:
         nombres_unicos = json.load(archivo)
 
     # Cargar la página actual
