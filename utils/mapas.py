@@ -4,6 +4,8 @@ import folium
 from streamlit_folium import st_folium
 import streamlit as st
 import json
+from pathlib import Path
+import numpy as np
 
 def grafico_de_puntos(file: str):
     # Abrir y leer el archivo JSON
@@ -138,7 +140,12 @@ def plot_map(file: str):
 
 
 def mapas_individuales(file):
-    df = pd.read_csv(file)
+    # Creacion de ruta completa de archivo
+    ruta = f"data\processed\P_{file}LatLon.csv"
+    # Formateo de ruta para actualizarse a sistema operativo
+    ruta_formateada = Path(ruta)
+    # Lectura de csv de mapa
+    df = pd.read_csv(ruta_formateada) 
     
     # API Key
     api_key = "4829d3b3-dc57-4df5-bf47-e9b7732ae181"
@@ -177,6 +184,9 @@ def mapas_individuales(file):
                       icon=folium.Icon(icon="cloud", color="red"),
                       tooltip=f"Promedio CO₂: {row['CO2_value']:.2f} gm-2-d-1"
                       ).add_to(mapa)
+        
+    # Ajuste de limites visibles del mapa
+    mapa.fit_bounds([[df['Lat'].min(), df['Lon'].min()], [df['Lat'].max(), df['Lon'].max()]])
         
     # Mostrar el mapa en la aplicación web dentro de un contenedor
     with st.container():

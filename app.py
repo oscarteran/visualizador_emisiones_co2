@@ -38,7 +38,7 @@ def main():
         listado_mapas()
     elif st.session_state["page"] in nombres_unicos:
         encabezado_mapa_individual(zona=str(st.session_state["page"]))
-        #mapas_individuales(file=nombres_unicos[str(st.session_state["page"])])
+        mapas_individuales(file=str(st.session_state["page"]))
     
 if __name__ == "__main__":
     main()
