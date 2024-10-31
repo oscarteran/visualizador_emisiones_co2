@@ -27,13 +27,13 @@ def main():
     # Invocar funcion para definir vista actual:
     definir_pagina_actual()
     
-    # ruta_nombres = Path("data\processed\\nombres_unicos.json")
+    ruta_nombres = Path("data\processed\\nombres_unicos.json")
     
-    # ruta_test_server = "..\data\processed\\nombres_unicos.json"
+    ruta_test_server = "..\data\processed\\nombres_unicos.json"
     
-    # # Leer lista completa de ubicaciones
-    # with open(ruta_nombres, "r") as archivo:
-    #     nombres_unicos = json.load(archivo)
+    # Leer lista completa de ubicaciones
+    with open(ruta_nombres, "r") as archivo:
+        nombres_unicos = json.load(archivo)
         
     nombres_unicos = {"Acoculco": "/data/processed\\P_AcoculcoLatLon.csv", "alcaparrosa": "/data/processed\\P_alcaparrosaLatLon.csv", "Azufres": "/data/processed\\P_AzufresLatLon.csv", "Chichinautzin": "/data/processed\\P_ChichinautzinLatLon.csv", "Escalera": "/data/processed\\P_EscaleraLatLon.csv", "Michoa": "/data/processed\\P_MichoaLatLon.csv", "Puruandiro": "/data/processed\\P_PuruandiroLatLon.csv"}
         

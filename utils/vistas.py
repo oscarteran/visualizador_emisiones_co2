@@ -76,15 +76,14 @@ def definir_pagina_actual():
     
 def contenido_principal():
     
-    # # Función para crear un contenedor con una imagen en una esquina
-    # def esquina_con_imagen(imagen, col):
-    # col1, col2 = st.columns([20, 5])
-    # with col1:
-    #     st.markdown("<br>", unsafe_allow_html=True)
-    #     st.markdown("<br>", unsafe_allow_html=True)
-    #     st.image('output\images\LogoIG.png', width=300)
-    # with col2:
-    #     st.image('output\images\LogoUnam.png', width=200)
+    # Carga de imágenes y logos
+    col1, col2 = st.columns([20, 5])
+    with col1:
+        st.markdown("<br>", unsafe_allow_html=True)
+        st.markdown("<br>", unsafe_allow_html=True)
+        st.image('output\images\LogoIG.png', width=300)
+    with col2:
+        st.image('output\images\LogoUnam.png', width=200)
 
     st.markdown(
     """
@@ -125,10 +124,32 @@ def listado_mapas():
     # Funcion para crear las paginas con parametro de definicion
     st.title("Listado completo de mapas")
     
-    st.markdown("### Seleccione una ubicación para mostrar el mapa")
-    for nombre, datos in mapas_completos.items():
-        with st.container():
-            st.button(nombre[17:-10].capitalize(),  on_click=go_to_page, args=(str(nombre[17:-10]),))
+    # Listado de nombres específicos
+    nombres_unicos = {"Acoculco": "/data/processed\\P_AcoculcoLatLon.csv", "alcaparrosa": "/data/processed\\P_alcaparrosaLatLon.csv", "Azufres": "/data/processed\\P_AzufresLatLon.csv", "Chichinautzin": "/data/processed\\P_ChichinautzinLatLon.csv", "Escalera": "/data/processed\\P_EscaleraLatLon.csv", "Michoa": "/data/processed\\P_MichoaLatLon.csv", "Puruandiro": "/data/processed\\P_PuruandiroLatLon.csv"}
+    
+    st.markdown("### Seleccione una ubicación para mostrar el mapa con los datos")
+    
+    opcion_seleccionada = st.selectbox("Busca una ubicación:", list(nombres_unicos.keys()))
+    
+    go_to_page(opcion_seleccionada)
+    
+    # for nombre, datos in mapas_completos.items():
+    #     with st.container():
+    #         opcion_seleccionada = st.selectbox("Busca una ubicación:", opciones_mapas)
+    #         st.button(nombre[17:-10].capitalize(),  on_click=go_to_page, args=(str(nombre[17:-10]),))
+            
+    # # Opciones de los mapas
+    # opciones_mapas = ["Acoculco", "Alcaparrosa", "Azufres", "Chichinautzin", "Escalera", "Michoa", "Puruandiro"]
+
+    # # Barra lateral
+    # with st.sidebar:
+    #     st.title("Buscar Mapa")
+    #     opcion_seleccionada = st.selectbox("Busca una ubicación:", opciones_mapas)
+
+    # # Mostrar el mapa seleccionado en el cuerpo principal
+    # if opcion_seleccionada:
+    #     # Aquí va el código para cargar y mostrar el mapa correspondiente
+    #     st.write(f"Has seleccionado el mapa de {opcion_seleccionada}")
             
 def encabezado_mapa_individual(zona):
     st.title(f"Información de zona: {zona}")
