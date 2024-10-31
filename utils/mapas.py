@@ -25,7 +25,7 @@ def grafico_de_puntos(file: str):
     # API Key
     api_key = "4829d3b3-dc57-4df5-bf47-e9b7732ae181"
     # Crear un mapa centrado en el primer punto
-    mapa = folium.Map(location=[23.5, -97], 
+    mapa = folium.Map(location=[23.5, -100], 
                       tiles="https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}.png?api_key="+api_key, 
                       attr='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>',
                       #tiles="Stadia.AlidadeSatellite",
@@ -66,21 +66,21 @@ def grafico_de_puntos(file: str):
     # Mostrar el mapa en la aplicación web dentro de un contenedor
     
     with st.container():
-        st.markdown(
-        """
-        <style>
-            .mapa {
-                display: block;
-                width: 100vw;
-                height: 90vh;
-            }
-        </style>
-        """,
-        unsafe_allow_html=True
-        )
-        st.markdown('<div class="mapa">', unsafe_allow_html=True)
-        st_folium(mapa, width=0, height=0)
-        st.markdown('</div>', unsafe_allow_html=True)
+        # st.markdown(
+        #     """
+        #     <style>
+        #         .map-container {
+        #             width: 100%;
+        #             height: 80vh;  /* Ajuste de altura basado en el tamaño de la ventana */
+        #             margin-top: 0px; /* Sin margen superior */
+        #         }
+        #     </style>
+        #     """,
+        #     unsafe_allow_html=True
+        # )
+        # st.markdown('<div class="map-container">', unsafe_allow_html=True)
+        st_folium(mapa, width=1100, height=600)
+        #st.markdown('</div>', unsafe_allow_html=True)
         
     
     
