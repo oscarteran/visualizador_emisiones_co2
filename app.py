@@ -8,6 +8,7 @@ import os
 from utils.vistas import *
 from utils.mapas import *
 from utils.links_2_maps import *
+from pathlib import Path
 
 
 
@@ -25,8 +26,10 @@ def main():
     # Invocar funcion para definir vista actual:
     definir_pagina_actual()
     
+    ruta_nombres = Path("data\processed\\nombres_unicos.json")
+    
     # Leer lista completa de ubicaciones
-    with open("data\processed\nombres_unicos.json", "r") as archivo:
+    with open(ruta_nombres, "r") as archivo:
         nombres_unicos = json.load(archivo)
 
     # Cargar la página actual
