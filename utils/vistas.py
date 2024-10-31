@@ -81,9 +81,9 @@ def contenido_principal():
     with col1:
         st.markdown("<br>", unsafe_allow_html=True)
         st.markdown("<br>", unsafe_allow_html=True)
-        st.image('output/images/LogoIG.png', width=300)
+        st.image("output/images/LogoIG.png", width=300)
     with col2:
-        st.image('output/images/LogoUnam.png', width=200)
+        st.image("output/images/LogoUnam.png", width=200)
 
     st.markdown(
     """
