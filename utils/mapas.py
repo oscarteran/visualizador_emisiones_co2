@@ -66,21 +66,21 @@ def grafico_de_puntos(file: str):
     # Mostrar el mapa en la aplicación web dentro de un contenedor
     
     with st.container():
-        # st.markdown(
-        # """
-        # <style>
-        #     .mapa {
-        #         display: block;
-        #         width: 100vw;
-        #         height: 90vh;
-        #     }
-        # </style>
-        # """,
-        # unsafe_allow_html=True
-        # )
-        #st.markdown('<div class="mapa">', unsafe_allow_html=True)
-        st_folium(mapa, width=1200, height=600)
-        #st.markdown('</div>', unsafe_allow_html=True)
+        st.markdown(
+        """
+        <style>
+            .mapa {
+                display: block;
+                width: 100vw;
+                height: 90vh;
+            }
+        </style>
+        """,
+        unsafe_allow_html=True
+        )
+        st.markdown('<div class="mapa">', unsafe_allow_html=True)
+        st_folium(mapa, width=0, height=0)
+        st.markdown('</div>', unsafe_allow_html=True)
         
     
     
