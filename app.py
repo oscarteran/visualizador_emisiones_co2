@@ -28,8 +28,10 @@ def main():
     
     ruta_nombres = Path("data\processed\\nombres_unicos.json")
     
+    ruta_test_server = "..\data\processed\\nombres_unicos.json"
+    
     # Leer lista completa de ubicaciones
-    with open(ruta_nombres, "r") as archivo:
+    with open(ruta_test_server, "r") as archivo:
         nombres_unicos = json.load(archivo)
 
     # Cargar la página actual
