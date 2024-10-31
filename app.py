@@ -27,9 +27,9 @@ def main():
     # Invocar funcion para definir vista actual:
     definir_pagina_actual()
     
-    ruta_nombres = Path("data\processed\\nombres_unicos.json")
+    ruta_nombres = Path("data/processed/nombres_unicos.json")
     
-    ruta_test_server = "..\data\processed\\nombres_unicos.json"
+    #ruta_test_server = "data\processed\\nombres_unicos.json"
     
     # Leer lista completa de ubicaciones
     with open(ruta_nombres, "r") as archivo:
@@ -54,7 +54,6 @@ def main():
     # Cargar la página actual
     if st.session_state["page"] == "Inicio":
         contenido_principal()
-        pie_de_pagina()
     elif st.session_state["page"] == "Acerca de":
         mostrar_datos_nacionales()
     elif st.session_state["page"] == "Mapas":
@@ -63,5 +62,6 @@ def main():
         encabezado_mapa_individual(zona=str(st.session_state["page"]))
         mapas_individuales(file=str(st.session_state["page"]))
     
+    #pie_de_pagina()
 if __name__ == "__main__":
     main()

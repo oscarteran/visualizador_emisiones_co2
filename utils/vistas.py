@@ -112,14 +112,14 @@ def contenido_principal():
 def listado_mapas():
     # Leer todos los csv convertidos en latitud y longitud
     # Especificar el directorio y tipo de archivo
-    csv_archivos = glob.glob("data\processed\*.csv")
+    # csv_archivos = glob.glob("data\processed\*.csv")
     
-    # Crear diccionario con nombre/df de datos
-    # Leer cada ruta de archivo y convertirlo a un DafaFrame
-    dataframes = [pd.read_csv(file) for file in csv_archivos]
+    # # Crear diccionario con nombre/df de datos
+    # # Leer cada ruta de archivo y convertirlo a un DafaFrame
+    # dataframes = [pd.read_csv(file) for file in csv_archivos]
     
-    # Unir en un diccionario ambas listas de elementos
-    mapas_completos = dict(zip(csv_archivos, dataframes))
+    # # Unir en un diccionario ambas listas de elementos
+    # mapas_completos = dict(zip(csv_archivos, dataframes))
     
     # Funcion para crear las paginas con parametro de definicion
     st.title("Listado completo de mapas")
