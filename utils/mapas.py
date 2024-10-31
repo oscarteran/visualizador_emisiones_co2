@@ -144,7 +144,7 @@ def plot_map(file: str):
 
 def mapas_individuales(file):
     # Creacion de ruta completa de archivo
-    ruta = f"data\processed\P_{file}LatLon.csv"
+    ruta = f"data/processed/P_{file}LatLon.csv"
     # Formateo de ruta para actualizarse a sistema operativo
     ruta_formateada = Path(ruta)
     # Lectura de csv de mapa
