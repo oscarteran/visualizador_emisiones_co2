@@ -75,12 +75,38 @@ def definir_pagina_actual():
     
     
 def contenido_principal():
-    st.title("Catálogo nacional de emisiones de CO2")
-    st.header("UNAM: Universidad Nacional Autónoma de México.")
-    st.subheader("Instituto de Geofísica. Departamento de Recursos Nacionales.")
-    st.text("""
-            Descripción completa del proyecto
-            """)
+    
+    # # Función para crear un contenedor con una imagen en una esquina
+    # def esquina_con_imagen(imagen, col):
+    col1, col2 = st.columns([20, 5])
+    with col1:
+        st.markdown("<br>", unsafe_allow_html=True)
+        st.markdown("<br>", unsafe_allow_html=True)
+        st.image('output\images\LogoIG.png', width=300)
+    with col2:
+        st.image('output\images\LogoUnam.png', width=200)
+
+    st.markdown(
+    """
+    <div style='text-align: center;'>
+        <h1>Catálogo nacional de emisiones de CO2</h1>
+        <h2>UNAM: Universidad Nacional Autónoma de México.</h2>
+        <h3>Instituto de Geofísica. Departamento de Recursos Nacionales.</h3>
+    </div>
+    """,
+    unsafe_allow_html=True
+    )
+    
+    st.markdown(
+        """
+        <div style="text-align: justify;">
+            <p>Este proyecto es un esfuerzo colectivo por recolectar datos y generar datos geolocalizados 
+            con el fin de generar un inventario nacional de emisiones de CO2. 
+            A través de la barra de navegación lateral es posible acceder a las diferentes páginas, mapas y contenido relacionado.</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
     
     
 
@@ -99,15 +125,48 @@ def listado_mapas():
     # Funcion para crear las paginas con parametro de definicion
     st.title("Listado completo de mapas")
     
-    st.markdown("### Seleccione un Mapa")
+    st.markdown("### Seleccione una ubicación para mostrar el mapa")
     for nombre, datos in mapas_completos.items():
         with st.container():
-            st.button(nombre[17:-10],  on_click=go_to_page, args=(str(nombre[17:-10]),))
+            st.button(nombre[17:-10].capitalize(),  on_click=go_to_page, args=(str(nombre[17:-10]),))
             
 def encabezado_mapa_individual(zona):
     st.title(f"Información de zona: {zona}")
     st.text("""
             Este mapa despliega la localización de las muestras tomadas así como el valor medido.
             """)
+    
+def pie_de_pagina():
+    # Pie de página fijo
+    st.markdown("""
+    <style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh; /* Asegurar que el contenedor ocupe toda la altura de la viewport */
+    }
+    
+    .content {
+        flex-grow: 1; /* El contenido principal ocupará el espacio restante */
+    }
+    
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #444446;
+        text-align: center;
+    }
+    </style>
+    
+    <div class="container">
+        <div class="content">
+            </div>
+        <div class="footer">
+            <p>© 2023 UNAM - Todos los derechos reservados</p>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
         
         

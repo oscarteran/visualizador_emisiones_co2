@@ -14,6 +14,7 @@ from pathlib import Path
 
 # Función principal para organizar la aplicación
 def main():
+    st.set_page_config(layout="wide")
     # Creación de columna de navegación
     #columna_navegacion()    
 
@@ -31,12 +32,29 @@ def main():
     ruta_test_server = "..\data\processed\\nombres_unicos.json"
     
     # Leer lista completa de ubicaciones
-    with open(ruta_test_server, "r") as archivo:
+    with open(ruta_nombres, "r") as archivo:
         nombres_unicos = json.load(archivo)
+        
+    nombres_unicos = {"Acoculco": "/data/processed\\P_AcoculcoLatLon.csv", "alcaparrosa": "/data/processed\\P_alcaparrosaLatLon.csv", "Azufres": "/data/processed\\P_AzufresLatLon.csv", "Chichinautzin": "/data/processed\\P_ChichinautzinLatLon.csv", "Escalera": "/data/processed\\P_EscaleraLatLon.csv", "Michoa": "/data/processed\\P_MichoaLatLon.csv", "Puruandiro": "/data/processed\\P_PuruandiroLatLon.csv"}
+        
+    # st.markdown("""
+    # <style>
+    # .container {
+    #     max-width: 90%;
+    #     margin: 0 auto;
+    #     padding: 20px;
+    # }
+    # </style>
+
+    # <div class="container">
+    # </div>
+    # """, unsafe_allow_html=True)
+    
 
     # Cargar la página actual
     if st.session_state["page"] == "Inicio":
         contenido_principal()
+        pie_de_pagina()
     elif st.session_state["page"] == "Acerca de":
         mostrar_datos_nacionales()
     elif st.session_state["page"] == "Mapas":

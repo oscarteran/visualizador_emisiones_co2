@@ -14,11 +14,15 @@ def mostrar_descripcion_proyecto():
 #     # Aquí puedes agregar gráficos, mapas, tablas, etc.
 
 def mostrar_datos_nacionales():
-    # Crear un header
-    st.header("Visualización de CO2 - Mapa Interactivo")
-    st.markdown("""
-    Mapas interactivos para revisión de datos de emisiones de CO2.  
-    """)
+    st.markdown(
+    """
+    <div style='text-align: center;'>
+        <h2>Distribución de principales zonas de medición en territorio nacional</h2>
+        <p>Mapas interactivos para revisión de datos de emisiones de CO2.</p>
+    </div>
+    """,
+    unsafe_allow_html=True
+    )
     grafico_de_puntos(file='data/processed/grafico_nacional.json')
     
     

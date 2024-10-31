@@ -51,13 +51,7 @@ def grafico_de_puntos(file: str):
                     fill_opacity=0.1,
                     #tooltip=f"Promedio CO₂: {avg_co2:.2f} gm-2-d-1"
                 ).add_to(mapa)
-                
-    if "page" not in st.session_state:
-        st.session_state["page"] = "Inicio"
 
-    # Función para cambiar de página
-    def go_to_page(page_name):
-        st.session_state["page"] = page_name
 
     # Añadir puntos al mapa
     for _, row in df.iterrows():
@@ -68,16 +62,25 @@ def grafico_de_puntos(file: str):
                       #popup=folium.Popup(f"<a href='#Acerca de' onclick='window.parent.go_to_page(Acerca de)'>Ir a página</a>"),
                       #popup="<a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II>Place Guillaume II</a>",
                       ).add_to(mapa)
-        
-    # Cargar la página según la selección
-    if st.session_state["page"] == "Inicio":
-        st.write("Página de Inicio")
-    elif st.session_state["page"] == "Acerca de":
-        st.write("Contenido de Acerca de")
 
     # Mostrar el mapa en la aplicación web dentro de un contenedor
+    
     with st.container():
-        st_folium(mapa, width=700, height=500)
+        # st.markdown(
+        # """
+        # <style>
+        #     .mapa {
+        #         display: block;
+        #         width: 100vw;
+        #         height: 90vh;
+        #     }
+        # </style>
+        # """,
+        # unsafe_allow_html=True
+        # )
+        #st.markdown('<div class="mapa">', unsafe_allow_html=True)
+        st_folium(mapa, width=1200, height=600)
+        #st.markdown('</div>', unsafe_allow_html=True)
         
     
     
@@ -190,4 +193,4 @@ def mapas_individuales(file):
         
     # Mostrar el mapa en la aplicación web dentro de un contenedor
     with st.container():
-        st_folium(mapa, width=700, height=500)
+        st_folium(mapa, width=1100, height=500)
