@@ -88,7 +88,7 @@ def definir_pagina_actual():
     st.sidebar.button("Descripción del proyecto", on_click=go_to_page, args=("Inicio",))
     st.sidebar.button("Modulo 1. Datos nacionales", on_click=go_to_page, args=("Acerca de",))
     st.sidebar.button("Redirección a los mapas", on_click=go_to_page, args=("Mapas",))
-    st.sidebar.button("Bibliografía", on_click=go_to_page, args=("Bibliografía",))
+    #st.sidebar.button("Bibliografía", on_click=go_to_page, args=("Bibliografía",))
     
     
     
