@@ -105,7 +105,7 @@ def plot_map(file: str):
 
     # Crear un mapa centrado en el primer punto
     mapa = folium.Map(location=[23.6345, -102.5528], 
-                      tiles="Stadia.AlidadeSatellite",
+                      tiles='Esri.WorldImagery',
                       zoom_start=5,
                     )
 
@@ -155,10 +155,11 @@ def mapas_individuales(file):
     api_key = "4829d3b3-dc57-4df5-bf47-e9b7732ae181"
     # Crear un mapa centrado en el primer punto
     mapa = folium.Map(location=[df['Lat'].mean(), df['Lon'].mean()], 
-                      tiles="https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}.png?api_key="+api_key, 
+                      #tiles="https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}.png?api_key="+api_key, 
                       attr='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>',
                       #tiles="Stadia.AlidadeSatellite",
                       #tiles="OpenStreetMap",
+                      tiles='Esri.WorldImagery',
                       zoom_start=12,
                     )
 
