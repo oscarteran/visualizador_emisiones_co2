@@ -6,6 +6,7 @@ import streamlit as st
 import json
 from .pages import *
 import glob
+from io import BytesIO
 
 
 # Función para mostrar el encabezado con imágenes
@@ -60,31 +61,9 @@ def show_description():
 # Función para cambiar de página
 def go_to_page(page_name):
     st.session_state["page"] = page_name
-
-
-
-def definir_pagina_actual():
-    titulo = "Inventario nacional de emisiones de CO"
-
-    # Mostrar ícono como botón para cambiar de página
-    st.sidebar.title(titulo)
-    st.sidebar.button("Descripción del proyecto", on_click=go_to_page, args=("Inicio",))
-    st.sidebar.button("Modulo 1. Datos nacionales", on_click=go_to_page, args=("Acerca de",))
-    st.sidebar.button("Redirección a los mapas", on_click=go_to_page, args=("Mapas",))
     
     
-    
-def contenido_principal():
-    
-    # Carga de imágenes y logos
-    col1, col2 = st.columns([20, 5])
-    with col1:
-        st.markdown("<br>", unsafe_allow_html=True)
-        st.markdown("<br>", unsafe_allow_html=True)
-        st.image("output/images/LogoIG.png", width=300)
-    with col2:
-        st.image("output/images/LogoUnam.png", width=200)
-
+def encabezado():
     st.markdown(
     """
     <div style='text-align: center;'>
@@ -95,6 +74,35 @@ def contenido_principal():
     """,
     unsafe_allow_html=True
     )
+    
+def n_espacios(n: int):
+    for _ in range(n):
+        st.markdown("<br>", unsafe_allow_html=True)
+
+
+def definir_pagina_actual():
+    titulo = "Inventario nacional de emisiones de CO"
+
+    # Mostrar ícono como botón para cambiar de página
+    st.sidebar.title(titulo)
+    st.sidebar.button("Descripción del proyecto", on_click=go_to_page, args=("Inicio",))
+    st.sidebar.button("Modulo 1. Datos nacionales", on_click=go_to_page, args=("Acerca de",))
+    st.sidebar.button("Redirección a los mapas", on_click=go_to_page, args=("Mapas",))
+    st.sidebar.button("Bibliografía", on_click=go_to_page, args=("Bibliografía",))
+    
+    
+    
+def contenido_principal():
+    
+    # Carga de imágenes y logos
+    col1, col2 = st.columns([20, 5])
+    with col1:
+        n_espacios(n=2)
+        st.image("output/images/LogoIG.png", width=300)
+    with col2:
+        st.image("output/images/LogoUnam.png", width=200)
+
+    encabezado()
     
     st.markdown(
         """
@@ -117,23 +125,90 @@ def contenido_principal():
     )
     
     
+def bibliografía():
+    # Titulos y encabezados
+    encabezado()
     
+    n_espacios(n=5)
+    
+    st.markdown(
+        """
+        <div style="text-align: justify;">
+            <p> En este apartado puedes encontrar recursos bibliográficos y artículos relacionados a la toma de muestras, el proyecto en general e investigación científica relevante. </p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+    
+    
+    # Datos de ejemplo
+    data = {
+        "Nombre del Archivo": ["archivo1.csv", "archivo2.csv", "archivo3.csv"],
+        "Descripción": ["Datos de ventas", "Datos de clientes", "Datos de inventario"]
+    }
+
+    # Crear DataFrame
+    df = pd.DataFrame(data)
+
+    # Función para generar un archivo de muestra
+    def generar_archivo(nombre_archivo):
+        output = BytesIO()
+        df_sample = pd.DataFrame({"Columna A": [1, 2, 3], "Columna B": [4, 5, 6]})
+        df_sample.to_csv(output, index=False)
+        output.seek(0)
+        return output
+
+    # HTML para tabla con bordes
+    table_html = """
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <table>
+        <tr>
+            <th>Nombre del Archivo</th>
+            <th>Descripción</th>
+            <th>Descargar</th>
+        </tr>
+    """
+
+    # Generar filas de la tabla con botones de descarga
+    for i, row in df.iterrows():
+        download_button = st.download_button(
+            label="Descargar",
+            data=generar_archivo(row["Nombre del Archivo"]),
+            file_name=row["Nombre del Archivo"],
+            mime="text/csv",
+            key=i  # Clave única para cada botón
+        )
+        # Agregar la fila en HTML (el botón de descarga se agrega desde Streamlit)
+        table_html += f"""
+        <tr>
+            <td>{row['Nombre del Archivo']}</td>
+            <td>{row['Descripción']}</td>
+            <td>{download_button}</td>
+        </tr>
+        """
+
+    table_html += "</table>"
+
+    # Mostrar la tabla con bordes en Streamlit
+    st.markdown(table_html, unsafe_allow_html=True)
     
     
     
 
 def listado_mapas():
-    # Leer todos los csv convertidos en latitud y longitud
-    # Especificar el directorio y tipo de archivo
-    # csv_archivos = glob.glob("data\processed\*.csv")
-    
-    # # Crear diccionario con nombre/df de datos
-    # # Leer cada ruta de archivo y convertirlo a un DafaFrame
-    # dataframes = [pd.read_csv(file) for file in csv_archivos]
-    
-    # # Unir en un diccionario ambas listas de elementos
-    # mapas_completos = dict(zip(csv_archivos, dataframes))
-    
     # Funcion para crear las paginas con parametro de definicion
     st.title("Listado completo de mapas")
     
@@ -146,29 +221,15 @@ def listado_mapas():
     
     go_to_page(opcion_seleccionada)
     
-    # for nombre, datos in mapas_completos.items():
-    #     with st.container():
-    #         opcion_seleccionada = st.selectbox("Busca una ubicación:", opciones_mapas)
-    #         st.button(nombre[17:-10].capitalize(),  on_click=go_to_page, args=(str(nombre[17:-10]),))
-            
-    # # Opciones de los mapas
-    # opciones_mapas = ["Acoculco", "Alcaparrosa", "Azufres", "Chichinautzin", "Escalera", "Michoa", "Puruandiro"]
-
-    # # Barra lateral
-    # with st.sidebar:
-    #     st.title("Buscar Mapa")
-    #     opcion_seleccionada = st.selectbox("Busca una ubicación:", opciones_mapas)
-
-    # # Mostrar el mapa seleccionado en el cuerpo principal
-    # if opcion_seleccionada:
-    #     # Aquí va el código para cargar y mostrar el mapa correspondiente
-    #     st.write(f"Has seleccionado el mapa de {opcion_seleccionada}")
+    
             
 def encabezado_mapa_individual(zona):
     st.title(f"Información de zona: {zona}")
     st.text("""
             Este mapa despliega la localización de las muestras tomadas así como el valor medido.
             """)
+    
+    
     
 def pie_de_pagina():
     # Pie de página fijo
