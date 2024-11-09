@@ -60,28 +60,11 @@ def grafico_de_puntos(file: str):
                       popup=f"({row['Lat']}, {row['Lon']})",
                       icon=folium.Icon(icon="cloud", color="red"),
                       tooltip=row['ubi'],
-                      #popup=folium.Popup(f"<a href='#Acerca de' onclick='window.parent.go_to_page(Acerca de)'>Ir a página</a>"),
-                      #popup="<a href=https://fr.wikipedia.org/wiki/Place_Guillaume_II>Place Guillaume II</a>",
                       ).add_to(mapa)
 
     # Mostrar el mapa en la aplicación web dentro de un contenedor
-    
     with st.container():
-        # st.markdown(
-        #     """
-        #     <style>
-        #         .map-container {
-        #             width: 100%;
-        #             height: 80vh;  /* Ajuste de altura basado en el tamaño de la ventana */
-        #             margin-top: 0px; /* Sin margen superior */
-        #         }
-        #     </style>
-        #     """,
-        #     unsafe_allow_html=True
-        # )
-        # st.markdown('<div class="map-container">', unsafe_allow_html=True)
-        st_folium(mapa, width=1100, height=600)
-        #st.markdown('</div>', unsafe_allow_html=True)
+        st_folium(mapa, width=None, height=600)
         
     
     
@@ -195,4 +178,4 @@ def mapas_individuales(file):
         
     # Mostrar el mapa en la aplicación web dentro de un contenedor
     with st.container():
-        st_folium(mapa, width=1100, height=500)
+        st_folium(mapa, width=None, height=500)
