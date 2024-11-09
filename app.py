@@ -42,8 +42,8 @@ def main():
         mostrar_datos_nacionales()
     elif st.session_state["page"] == "Mapas":
         listado_mapas()
-    # elif st.session_state["page"] == "Bibliografía":
-    #     bibliografía()
+    elif st.session_state["page"] == "Bibliografía":
+        bibliografía()
     elif st.session_state["page"] in nombres_unicos:
         encabezado_mapa_individual(zona=str(st.session_state["page"]))
         mapas_individuales(file=str(st.session_state["page"]))

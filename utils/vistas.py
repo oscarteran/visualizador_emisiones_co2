@@ -7,6 +7,7 @@ import json
 from .pages import *
 import glob
 from io import BytesIO
+import os
 
 
 # Función para mostrar el encabezado con imágenes
@@ -88,7 +89,7 @@ def definir_pagina_actual():
     st.sidebar.button("Descripción del proyecto", on_click=go_to_page, args=("Inicio",))
     st.sidebar.button("Modulo 1. Datos nacionales", on_click=go_to_page, args=("Acerca de",))
     st.sidebar.button("Redirección a los mapas", on_click=go_to_page, args=("Mapas",))
-    #st.sidebar.button("Bibliografía", on_click=go_to_page, args=("Bibliografía",))
+    st.sidebar.button("Bibliografía", on_click=go_to_page, args=("Bibliografía",))
     
     
     
@@ -140,71 +141,48 @@ def bibliografía():
         unsafe_allow_html=True
     )
     
-    
-    # Datos de ejemplo
+    # Ejemplo de datos para la tabla
     data = {
-        "Nombre del Archivo": ["archivo1.csv", "archivo2.csv", "archivo3.csv"],
-        "Descripción": ["Datos de ventas", "Datos de clientes", "Datos de inventario"]
+        "Nombre": ["Acoculco", "Alcaparrosa", "Azufres", "Chichinautzin", "Escalare", "Michoa", "Puruandiro"],
+        "Ubicacion": [24, 30, 35, 28, 40,10, 10],
+        "Estado": ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "Michoacan", "Mexico"],
+        "Descripción": ["", "", "", "", "", "", ""], 
+        "Archivo": ["P_Acoculco.csv", "P_alcaparrosa.csv", "P_Azufres.csv", "P_Chichinautzin.csv", "P_Escalera.csv", "P_Michoa.csv", "P_Puruandiro.csv"]  # Nombres de archivos CSV
     }
-
-    # Crear DataFrame
     df = pd.DataFrame(data)
 
-    # Función para generar un archivo de muestra
-    def generar_archivo(nombre_archivo):
-        output = BytesIO()
-        df_sample = pd.DataFrame({"Columna A": [1, 2, 3], "Columna B": [4, 5, 6]})
-        df_sample.to_csv(output, index=False)
-        output.seek(0)
-        return output
+    # Desplegar la tabla
+    st.write("Información de Usuarios")
+    st.dataframe(df, use_container_width=True)
 
-    # HTML para tabla con bordes
-    table_html = """
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: center;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
-    <table>
-        <tr>
-            <th>Nombre del Archivo</th>
-            <th>Descripción</th>
-            <th>Descargar</th>
-        </tr>
-    """
+    # Ruta al directorio donde están almacenados los archivos CSV
+    csv_dir = "./data/raw/"  # Ajusta esta ruta según tu estructura de archivos
 
-    # Generar filas de la tabla con botones de descarga
-    for i, row in df.iterrows():
-        download_button = st.download_button(
-            label="Descargar",
-            data=generar_archivo(row["Nombre del Archivo"]),
-            file_name=row["Nombre del Archivo"],
-            mime="text/csv",
-            key=i  # Clave única para cada botón
-        )
-        # Agregar la fila en HTML (el botón de descarga se agrega desde Streamlit)
-        table_html += f"""
-        <tr>
-            <td>{row['Nombre del Archivo']}</td>
-            <td>{row['Descripción']}</td>
-            <td>{download_button}</td>
-        </tr>
-        """
+    # Crear una tabla con encabezados
+    st.write("Descarga de archivos con datos crudos.")
+    columns_len = [1 for _ in data["Archivo"]]
+    header_cols = st.columns(columns_len)
 
-    table_html += "</table>"
+    # Crear filas con datos y botones de descarga
+    for idx, file in enumerate(data["Archivo"]):
 
-    # Mostrar la tabla con bordes en Streamlit
-    st.markdown(table_html, unsafe_allow_html=True)
-    
+        # Ruta completa del archivo CSV
+        file_path = os.path.join(csv_dir, file)
+
+        # Leer el archivo CSV para obtener los bytes
+        with open(file_path, "rb") as file:
+            file_bytes = file.read()
+            
+        with header_cols[idx]:
+            # Crear el botón de descarga en la última columna
+            st.download_button(
+                label=file_path[11:-4],
+                data=file_bytes,
+                file_name=file_path,
+                mime="text/csv",
+                key=f"download-btn-{idx}"  # Clave única para cada botón
+            )
+           
     
     
 
