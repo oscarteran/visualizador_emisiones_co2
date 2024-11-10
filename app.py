@@ -90,21 +90,8 @@ def main():
     #pie_de_pagina()
 
 
+
+
 if __name__ == "__main__":
-    """
-    Punto de entrada de la aplicación.
 
-    Este bloque asegura que la función `main()` se ejecute solo si el script es ejecutado directamente, 
-    y no si es importado como un módulo en otro script.
-
-    Flujo:
-    ------
-    - Al ejecutar el script, Python verifica si el valor de `__name__` es "__main__".
-    - Si es así, se llama a `main()`, iniciando la configuración de la aplicación.
-
-    Contexto:
-    ---------
-    - Este bloque es comúnmente utilizado en Python para organizar el código y permitir que funciones, 
-      clases o bloques de código sean reutilizados en otros scripts sin ejecutar el flujo principal del programa.
-    """
     main()
