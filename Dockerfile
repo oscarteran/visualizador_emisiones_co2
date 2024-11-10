@@ -7,6 +7,9 @@ WORKDIR /visualizador
 # Copia los archivos de la aplicación al contenedor
 COPY . /visualizador
 
+# Actualización de pip en contenedor
+RUN pip install --upgrade pip
+
 # Instala las dependencias de la aplicación
 RUN pip install --no-cache-dir -r requirements.txt
 
