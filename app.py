@@ -14,6 +14,44 @@ from pathlib import Path
 
 # Función principal para organizar la aplicación
 def main():
+    """
+    Función principal para organizar la aplicación y controlar la navegación entre las diferentes páginas.
+    
+    Esta función configura el diseño de la página, inicializa el estado de sesión para manejar la navegación, 
+    carga una lista de nombres únicos de ubicaciones, y muestra el contenido adecuado basado en la página actual.
+    
+    Flujo de la función:
+    1. Configura la página en modo ancho completo.
+    2. Inicializa la variable de sesión `page` con el valor "Inicio" si aún no ha sido definida.
+    3. Llama a la función `definir_pagina_actual` para actualizar la página actual según la navegación.
+    4. Lee un archivo JSON con la lista de nombres únicos de ubicaciones.
+    5. Carga y muestra el contenido correspondiente según la página actual.
+    
+    Parámetros:
+    ----------
+    No recibe parámetros directos. Utiliza y modifica el estado de sesión (`st.session_state`).
+    
+    Variables de sesión utilizadas:
+    -------------------------------
+    - st.session_state["page"]: indica la página actual de la aplicación.
+    
+    Funciones auxiliares:
+    ---------------------
+    - definir_pagina_actual(): Actualiza la página actual en base a la navegación del usuario.
+    - contenido_principal(): Muestra el contenido de la página de inicio.
+    - mostrar_datos_nacionales(): Muestra la sección de datos nacionales.
+    - listado_mapas(): Muestra una lista de mapas.
+    - bibliografia(): Muestra la sección de bibliografía.
+    - pie_de_pagina(): Muestra el pie de página en la sección de bibliografía.
+    - encabezado_mapa_individual(zona): Muestra el encabezado para un mapa específico.
+    - mapas_individuales(file): Muestra un mapa individual basado en el archivo correspondiente.
+    
+    Archivos utilizados:
+    --------------------
+    - `nombres_unicos.json`: JSON ubicado en "data/processed/nombres_unicos.json" que contiene una lista de ubicaciones únicas.
+    
+    """
+
     # Uso completo de la página
     st.set_page_config(layout="wide")
 
@@ -50,5 +88,23 @@ def main():
         mapas_individuales(file=str(st.session_state["page"]))
     
     #pie_de_pagina()
+
+
 if __name__ == "__main__":
+    """
+    Punto de entrada de la aplicación.
+
+    Este bloque asegura que la función `main()` se ejecute solo si el script es ejecutado directamente, 
+    y no si es importado como un módulo en otro script.
+
+    Flujo:
+    ------
+    - Al ejecutar el script, Python verifica si el valor de `__name__` es "__main__".
+    - Si es así, se llama a `main()`, iniciando la configuración de la aplicación.
+
+    Contexto:
+    ---------
+    - Este bloque es comúnmente utilizado en Python para organizar el código y permitir que funciones, 
+      clases o bloques de código sean reutilizados en otros scripts sin ejecutar el flujo principal del programa.
+    """
     main()

@@ -10,20 +10,18 @@ from io import BytesIO
 import os
 
 
-# Función para mostrar el encabezado con imágenes
-# Función para mostrar el encabezado con la imagen en la esquina superior izquierda
-def show_header(image):
-    col1, col2 = st.columns([1, 4])  # La columna de la imagen es 1/5 del ancho, la del texto es 4/5
 
-    with col1:
-        st.image(image, width=100)  # Imagen en la esquina superior izquierda
-
-    with col2:
-        st.title("Análisis de CO₂ en Puntos de Recolección")  # Texto de encabezado
-        st.markdown("---")  # Línea divisoria debajo del título
 
 # Función para mostrar el texto en la columna izquierda
 def show_description():
+    """
+    Muestra una descripción general del proyecto en la aplicación, incluyendo el propósito del mapa
+    y detalles sobre los puntos de recolección de datos de CO₂.
+
+    Parámetros:
+    -----------
+    - No recibe parámetros de entrada.
+    """
     st.subheader("Descripción del Proyecto")
     st.write("""
         Este mapa muestra los puntos de recolección de datos de CO₂ en una zona específica. 
@@ -34,37 +32,30 @@ def show_description():
         Usa el cursor para interactuar con los marcadores y ver los valores exactos.
     """)
 
-#TODO: Columna deprecada
-# def columna_navegacion():
-#     # Menú en la barra lateral
-#     # st.sidebar.title("📚 Inventario de emisiones")
-#     # st.sidebar.write("**Selecciona un módulo:**")
-#     # st.sidebar.write("- Descripción del proyecto")
-#     # st.sidebar.write("- Modulo 1: Datos")
 
-    
-#     # Menú en la barra lateral
-#     st.sidebar.title("Inventario de emisiones")
-#     section = st.sidebar.radio("Selecciona un módulo:", 
-#                             ["Descripción del proyecto", 
-#                              "Modulo 1: Datos Nacionales",])
-
-#     # Contenido basado en la selección
-#     if section == "Descripción del proyecto":
-#         st.header("Descripción del proyecto")
-#         st.write("Aquí va una descripción del curso...")
-        
-#     elif section == "Modulo 1: Datos Nacionales":
-#         st.header("Module 1: Datos")
-#         st.write("Contenido de la introducción y los prerrequisitos...")
-#         show_country()
 
 # Función para cambiar de página
 def go_to_page(page_name):
+    """
+    Cambia la página actual de la aplicación según el nombre de página especificado, 
+    actualizando el estado de la sesión en Streamlit.
+
+    Parámetros:
+    -----------
+    - page_name (str): Nombre de la página a la cual se desea navegar.
+    """
     st.session_state["page"] = page_name
     
     
 def encabezado():
+    """
+    Muestra un encabezado centrado en la aplicación con el título del catálogo 
+    de emisiones de CO₂ y la información institucional de la UNAM y el Instituto de Geofísica.
+
+    Parámetros:
+    -----------
+    - No recibe parámetros de entrada.
+    """
     st.markdown(
     """
     <div style='text-align: center;'>
@@ -77,11 +68,27 @@ def encabezado():
     )
     
 def n_espacios(n: int):
+    """
+    Inserta una cantidad específica de espacios verticales (líneas en blanco) en la interfaz de la aplicación.
+
+    Parámetros:
+    -----------
+    - n (int): Número de líneas en blanco que se desea agregar.
+    """
     for _ in range(n):
         st.markdown("<br>", unsafe_allow_html=True)
 
 
 def definir_pagina_actual():
+    """
+    Define la página actual de la aplicación y muestra los botones de navegación en la barra lateral.
+
+    Esta función establece el título de la página y crea botones que, al ser presionados, redireccionan a diferentes secciones de la aplicación.
+
+    Parámetros:
+    -----------
+    - No recibe parámetros de entrada.
+    """
     titulo = "Inventario nacional de emisiones de CO"
 
     # Mostrar ícono como botón para cambiar de página
@@ -94,6 +101,26 @@ def definir_pagina_actual():
     
     
 def contenido_principal():
+    """
+    Genera y muestra el contenido principal de una página web utilizando Streamlit.
+    
+    Esta función construye la estructura principal de una página web que forma parte
+    de un proyecto de inventario nacional de emisiones de CO2. La función realiza
+    las siguientes tareas:
+    
+    1. Crea un diseño de dos columnas para mostrar logos
+    2. Carga y muestra los logos de la institución
+    3. Inserta un encabezado personalizado
+    4. Agrega texto descriptivo del proyecto con formato HTML
+
+    Parámetros:
+    -----------
+    - No recibe parámetros de entrada.
+
+    Returns:
+    -----------
+        None: La función modifica directamente la interfaz de Streamlit
+    """
     
     # Carga de imágenes y logos
     col1, col2 = st.columns([20, 5])
@@ -127,6 +154,25 @@ def contenido_principal():
     
     
 def bibliografia():
+    """
+    Genera y muestra una página de recursos bibliográficos con funcionalidad de descarga de datos.
+
+    Esta función crea una página web utilizando Streamlit que contiene información bibliográfica
+    y permite la descarga de archivos CSV relacionados con diferentes ubicaciones geográficas.
+    La función realiza las siguientes operaciones:
+
+    1. Muestra un encabezado y texto descriptivo
+    2. Crea y muestra una tabla de datos con información de diferentes ubicaciones
+    3. Genera botones de descarga para archivos CSV asociados a cada ubicación
+
+    Parámetros:
+    -----------
+    - No recibe parámetros de entrada.
+
+    Returns:
+    -----------
+        None: La función modifica directamente la interfaz de Streamlit
+    """
     # Titulos y encabezados
     encabezado()
     
@@ -187,6 +233,40 @@ def bibliografia():
     
 
 def listado_mapas():
+    """
+    Crea una interfaz de selección de mapas para diferentes ubicaciones geográficas.
+
+    Esta función genera una página web utilizando Streamlit que permite al usuario
+    seleccionar y navegar entre diferentes mapas de ubicaciones específicas. La función
+    implementa un sistema de navegación basado en un menú desplegable.
+
+    Estructura:
+        1. Muestra un título principal
+        2. Presenta un menú desplegable con ubicaciones disponibles
+        3. Redirecciona al mapa seleccionado usando un sistema de navegación
+
+    Diccionario de ubicaciones:
+        El diccionario nombres_unicos contiene pares de:
+        - Clave: Nombre de la ubicación (str)
+        - Valor: Ruta al archivo CSV procesado (str)
+        
+    Ubicaciones disponibles:
+        - Acoculco
+        - Alcaparrosa
+        - Azufres
+        - Chichinautzin
+        - Escalera
+        - Michoa
+        - Puruandiro
+    
+    Parámetros:
+    -----------
+    - No recibe parámetros de entrada.
+
+    Returns:
+    -----------
+        None: La función modifica directamente la interfaz de Streamlit
+    """
     # Funcion para crear las paginas con parametro de definicion
     st.title("Listado completo de mapas")
     
@@ -202,6 +282,20 @@ def listado_mapas():
     
             
 def encabezado_mapa_individual(zona):
+    """
+    Genera el encabezado descriptivo para la página de un mapa individual de una zona específica.
+
+    Esta función crea un título y una descripción estándar para las páginas que muestran
+    mapas individuales de zonas de muestreo. La función proporciona contexto sobre
+    la información que se visualizará en el mapa.
+
+    Args:
+        zona (str): Nombre de la zona geográfica que se está visualizando.
+                   Ejemplos: "Acoculco", "Azufres", "Chichinautzin", etc.
+
+    Returns:
+        None: La función modifica directamente la interfaz de Streamlit
+    """
     st.title(f"Información de zona: {zona}")
     st.text("""
             Este mapa despliega la localización de las muestras tomadas así como el valor medido.
@@ -210,6 +304,29 @@ def encabezado_mapa_individual(zona):
     
     
 def pie_de_pagina():
+    """
+    Genera un pie de página fijo en la parte inferior de la aplicación web.
+
+    Esta función crea un pie de página con estilo personalizado utilizando HTML y CSS
+    que se mantiene fijo en la parte inferior de la página independientemente del
+    contenido y el scroll.
+
+    Estilos CSS implementados:
+        - container:
+            * Display: flex
+            * Dirección: columna
+            * Altura mínima: 100vh (altura total de la ventana)
+        
+        - content:
+            * Flex-grow: 1 (ocupa el espacio disponible)
+        
+        - footer:
+            * Posición: fija
+            * Ubicación: parte inferior (bottom: 0)
+            * Ancho: 100%
+            * Color de fondo: #444446 (gris oscuro)
+            * Alineación de texto: centrado
+    """
     # Pie de página fijo
     st.markdown("""
     <style>
@@ -243,3 +360,46 @@ def pie_de_pagina():
     """, unsafe_allow_html=True)
         
         
+
+"""
+-----------------------------------------------------------------------------
+------------------------ FUNCIONES DEPRECADAS -------------------------------
+-----------------------------------------------------------------------------
+"""
+
+# # Función para mostrar el encabezado con imágenes
+# # Función para mostrar el encabezado con la imagen en la esquina superior izquierda
+# def show_header(image):
+#     col1, col2 = st.columns([1, 4])  # La columna de la imagen es 1/5 del ancho, la del texto es 4/5
+
+#     with col1:
+#         st.image(image, width=100)  # Imagen en la esquina superior izquierda
+
+#     with col2:
+#         st.title("Análisis de CO₂ en Puntos de Recolección")  # Texto de encabezado
+#         st.markdown("---")  # Línea divisoria debajo del título
+
+#TODO: Columna deprecada
+# def columna_navegacion():
+#     # Menú en la barra lateral
+#     # st.sidebar.title("📚 Inventario de emisiones")
+#     # st.sidebar.write("**Selecciona un módulo:**")
+#     # st.sidebar.write("- Descripción del proyecto")
+#     # st.sidebar.write("- Modulo 1: Datos")
+
+    
+#     # Menú en la barra lateral
+#     st.sidebar.title("Inventario de emisiones")
+#     section = st.sidebar.radio("Selecciona un módulo:", 
+#                             ["Descripción del proyecto", 
+#                              "Modulo 1: Datos Nacionales",])
+
+#     # Contenido basado en la selección
+#     if section == "Descripción del proyecto":
+#         st.header("Descripción del proyecto")
+#         st.write("Aquí va una descripción del curso...")
+        
+#     elif section == "Modulo 1: Datos Nacionales":
+#         st.header("Module 1: Datos")
+#         st.write("Contenido de la introducción y los prerrequisitos...")
+#         show_country()

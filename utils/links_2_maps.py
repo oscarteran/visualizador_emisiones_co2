@@ -2,6 +2,7 @@ import streamlit as st
 import folium
 from .pages import *
 
+# FUNCION DEPRECADA
 def mostrar_pagina_(pagina):
     if pagina == 'home':
         st.header("Página Principal")
