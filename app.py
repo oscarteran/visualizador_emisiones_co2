@@ -90,8 +90,5 @@ def main():
     #pie_de_pagina()
 
 
-
-
 if __name__ == "__main__":
-
     main()
