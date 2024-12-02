@@ -207,7 +207,7 @@ def mapas_individuales(file):
         folium.Marker([row['Lat'], row['Lon']],
                       popup=f"({row['Lat']}, {row['Lon']})",
                       icon=folium.Icon(icon="cloud", color="red"),
-                      tooltip=f"Promedio CO₂: {row['CO2_value']:.2f} gm-2-d-1"
+                      tooltip=f"Emisión CO₂: {row['CO2_value']:.2f} gm-2-d-1"
                       ).add_to(mapa)
         
     # Ajuste de limites visibles del mapa

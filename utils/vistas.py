@@ -90,13 +90,29 @@ def definir_pagina_actual():
     - No recibe parámetros de entrada.
     """
     titulo = "Inventario nacional de emisiones de CO"
+    
+    ruta_nombres = Path("./data/processed/nombres_unicos.json")
+    
+    #ruta_test_server = "data\processed\\nombres_unicos.json"
+    
+    # Leer lista completa de ubicaciones
+    with open(ruta_nombres, "r") as archivo:
+        nombres_unicos = json.load(archivo)
 
     # Mostrar ícono como botón para cambiar de página
     st.sidebar.title(titulo)
-    st.sidebar.button("Descripción del proyecto", on_click=go_to_page, args=("Inicio",))
-    st.sidebar.button("Modulo 1. Datos nacionales", on_click=go_to_page, args=("Acerca de",))
-    st.sidebar.button("Redirección a los mapas", on_click=go_to_page, args=("Mapas",))
-    st.sidebar.button("Bibliografía", on_click=go_to_page, args=("Bibliografía",))
+    st.sidebar.button("Catálogo de emisiones de CO2", on_click=go_to_page, args=("Inicio",))
+    st.sidebar.button("Inventario Nacional", on_click=go_to_page, args=("Acerca de",))
+    #st.sidebar.button("Ficha técnica de cada mapa", on_click=go_to_page, args=("Mapas",))
+    # Elemento con sublista desplegable
+    with st.sidebar.expander("Ficha técnica de cada mapa", expanded=False):
+        #st.write("Opciones:")
+        for key, value in nombres_unicos.items():
+            st.button(key, on_click=go_to_page, args=(key,))
+        #st.button("alcaparrosa", on_click=go_to_page, args=("alcaparrosa",))
+    st.sidebar.button("Fuentes de información", on_click=go_to_page, args=("Bibliografía",))
+    
+
     
     
     
