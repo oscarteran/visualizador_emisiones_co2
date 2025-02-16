@@ -25,5 +25,8 @@ Futuros trabajos:
 
 Actividades para YA
 1. Colocar columna de ubicaciones mientras el mapa se puede ver 
+    COMPLETO
 2. Corregir el hecho de que no se actualiza el mapa
+    COMPLETO
 3. Entender alcance completo de Streamlit 
+4. Validar ubicacion de cada mapa

@@ -72,15 +72,36 @@ def grafico_de_puntos(file: str):
         
     df = pd.DataFrame(data={'ubi': nombres, 'Lat': lat, 'Lon': lon})
     
+    # Opciones de mapas con sus atribuciones correspondientes
+    opciones_mapa = {
+        "División Política": {
+            "tiles": "OpenStreetMap",
+            "attr": '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        },
+        "Satelital": {
+            "tiles": "Esri.WorldImagery",
+            "attr": '&copy; <a href="https://www.esri.com/">Esri</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        },
+        "Relieve": {
+            "tiles": "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",  # URL de OpenTopoMap
+            "attr": '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://opentopomap.org/">OpenTopoMap</a>'
+        }
+    }
+
+    # Selección del tipo de mapa
+    tipo_mapa = st.selectbox("Capas:", list(opciones_mapa.keys()))
+    
     # API Key
     api_key = "4829d3b3-dc57-4df5-bf47-e9b7732ae181"
     # Crear un mapa centrado en el primer punto
     mapa = folium.Map(location=[23.5, -100], 
                       #tiles="https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}.png?api_key="+api_key, 
-                      attr='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>',
+                      #attr='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>',
                       #tiles="Stadia.AlidadeSatellite",
-                      #tiles="OpenStreetMap",
-                      tiles='Esri.WorldImagery',
+                      #tiles=str(tipo_mapa),
+                      #tiles='Esri.WorldImagery',
+                      tiles=opciones_mapa[tipo_mapa]["tiles"],
+                      attr=opciones_mapa[tipo_mapa]["attr"],  # Atribución
                       zoom_start=5,
                     )
 
@@ -171,15 +192,37 @@ def mapas_individuales(file):
     # Lectura de csv de mapa
     df = pd.read_csv(ruta_formateada) 
     
+    # Opciones de mapas con sus atribuciones correspondientes
+    opciones_mapa = {
+        "División Política": {
+            "tiles": "OpenStreetMap",
+            "attr": '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        },
+        "Satelital": {
+            "tiles": "Esri.WorldImagery",
+            "attr": '&copy; <a href="https://www.esri.com/">Esri</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        },
+        "Relieve": {
+            "tiles": "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",  # URL de OpenTopoMap
+            "attr": '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://opentopomap.org/">OpenTopoMap</a>'
+        }
+    }
+
+    # Selección del tipo de mapa
+    tipo_mapa = st.selectbox("Capas:", list(opciones_mapa.keys()))
+    
     # API Key
     api_key = "4829d3b3-dc57-4df5-bf47-e9b7732ae181"
     # Crear un mapa centrado en el primer punto
+    # Mapa con imagen satelital sin division política
     mapa = folium.Map(location=[df['Lat'].mean(), df['Lon'].mean()], 
                       #tiles="https://tiles.stadiamaps.com/tiles/alidade_satellite/{z}/{x}/{y}.png?api_key="+api_key, 
-                      attr='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>',
+                      #attr='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>',
                       #tiles="Stadia.AlidadeSatellite",
                       #tiles="OpenStreetMap",
-                      tiles='Esri.WorldImagery',
+                      #tiles='Esri.WorldImagery',
+                      tiles=opciones_mapa[tipo_mapa]["tiles"],
+                      attr=opciones_mapa[tipo_mapa]["attr"],  # Atribución
                       zoom_start=12,
                     )
 
