@@ -14,7 +14,7 @@ RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Expone el puerto que utiliza Streamlit (8501 por defecto)
-EXPOSE 8501
+EXPOSE 8080
 
 # Define el comando para iniciar la aplicación
 CMD ["streamlit", "run", "app.py"]
